@@ -55,7 +55,27 @@ This canvas element represents an algebraic deriavation that can consist of seve
 
 **constructor options**
 
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
+| Option | Description | Default Value |
+| --- | --- | --- |
+| eq | initial equation | - |
+| pos | initial position | `{x: 'center', y: 'center'}` |
+| font_size | initial fontsize | `50` |
+| collapsed_mode | create new lines on top of previous ones | `true` |
+| auto_collapse_repeated_actions | collapse subsequent lines triggered by same action | `true` |
+| draggable | allows user to move derivation | `true` |
+| hide_handles | hides line handles | `false` |
+| wiggle | initially wiggle some terms, e.g. `"1+2"` or `["1", "2", "3"]` | `[]` |
+| cloning_on | allow cloning of lines of this derivation | `true` |
+| action_blacklist | disable actions with provided names | `[]` |
+
+<a name="setExpression" href="#setExpression">#</a> derivation.**setExpression**(*expr_str*)
+
+Set the last line of the derivation to the passed expression string.
+
+<a name="setFontSize" href="#setFontSize">#</a> derivation.**setFontSize**(*font_size*)
+
+Updates the font size of the derivation.
+
+<a name="getLastRow" href="#getLastRow">#</a> derivation.**getLastModel**()
+
+Returns the `AlgebraModel` of the last line in the derivation.
