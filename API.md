@@ -16,6 +16,10 @@ Holds all elements on the canvas.
 
 Creates a new canvas element. GM comes with the build-in element types 'derivation', 'textbox', 'image', 'ggb-panel' and 'ggb-element'. The *options* object is passed to the constructor of the element that is created. You should always pass `pos: {x, y}` as an option. The string passed as *method* parameter is written to the logging database, and the function passed as *callback* will be called with the created element as parameter once it is initialized and displayed.
 
+<a name="removeElement" href="#removeElement">#</a> cmodel.**removeElement**(*element*)
+
+Removes the passed element from the canvas.
+
 <a name="elements" href="#elements">#</a> cmodel.**elements**()
 
 Returns an array of all elements on the canvas.
