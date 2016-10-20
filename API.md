@@ -50,7 +50,7 @@ Hide any currently visible text notice.
 
 ### Events
 
-<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.**events.on('create'**, *callback*)
+<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.**events.on**(**'create'**, *callback*)
 
 Event object passed to the callback:
 
@@ -61,7 +61,7 @@ Event object passed to the callback:
 };
 ```
 
-<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.**events.on('remove'**, *callback*)
+<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.**events.on**(**'remove'**, *callback*)
 
 Event object passed to the callback:
 
@@ -104,7 +104,7 @@ Returns the `AlgebraModel` of the last line in the derivation.
 
 ### Events
 
-<a name="der-on-change" href="#der-on-change">#</a> derivation.**events.on('change'**, *callback*)
+<a name="der-on-change" href="#der-on-change">#</a> derivation.**events.on**(**'change'**, *callback*)
 
 Event object passed to the callback:
 
