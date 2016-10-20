@@ -31,3 +31,15 @@ Returns the current size of the canvas workspace (usually bigger than the screen
 <a name="viewport" href="#viewport">#</a> cmodel.**viewport**()
 
 Returns the currently visible rectangle of the canvas workspace.
+
+<a name="reset" href="#reset">#</a> cmodel.**reset**()
+
+Removes all elements and drawings from the canvas and scrolls to the top position.
+
+<a name="showNotice" href="#showNotice">#</a> cmodel.**showNotice**(*text*)
+
+Shows a text notice at the top of the canvas. The message is automatically dismissed when the user interacts with the canvas.
+
+<a name="showNotice" href="#showNotice">#</a> cmodel.**hideNotice**()
+
+Hide any currently visible text notice.
