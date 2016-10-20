@@ -53,7 +53,7 @@ Hide any currently visible text notice.
 
 This canvas element represents an algebraic deriavation that can consist of several lines (rows). Each row has an `AlgebraModel`, an `AlgebraView` and for most rows an `Action` that created the row. Derivations should be created through the [createElement](#createElement) method of a CanvasModel.
 
-**constructor options**
+### constructor options
 
 | Option | Description | Default Value |
 | --- | --- | --- |
@@ -78,3 +78,16 @@ Updates the font size of the derivation.
 <a name="getLastRow" href="#getLastRow">#</a> derivation.**getLastModel**()
 
 Returns the `AlgebraModel` of the last line in the derivation.
+
+### Events
+
+<a name="der-on-change" href="#der-on-change">#</a> derivation.**events.on**('change', *callback*)
+
+The callback method will be called with an event object with the fields
+```
+{ type: 'change'
+, performee // id of the derivation
+, row // index of the new / changed row
+, model // AlgebraModel, the new / changed model
+}
+```
