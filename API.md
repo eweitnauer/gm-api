@@ -48,6 +48,29 @@ Shows a text notice at the top of the canvas. The message is automatically dismi
 
 Hide any currently visible text notice.
 
+### Events
+
+<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.events.on(**'create'**, *callback*)
+
+Event object passed to the callback:
+
+```
+{ type: 'create'
+, target_type // element type, such as 'derivation'
+, target // the element
+};
+```
+
+<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.events.on(**'remove'**, *callback*)
+
+Event object passed to the callback:
+
+```
+{ type: 'remove'
+, target_type // element type, such as 'derivation'
+, target // the element
+};
+```
 
 ## Derivation
 
@@ -81,9 +104,10 @@ Returns the `AlgebraModel` of the last line in the derivation.
 
 ### Events
 
-<a name="der-on-change" href="#der-on-change">#</a> derivation.**events.on**('change', *callback*)
+<a name="der-on-change" href="#der-on-change">#</a> derivation.events.on(**'change'**, *callback*)
 
-The callback method will be called with an event object with the fields
+Event object passed to the callback:
+
 ```
 { type: 'change'
 , performee // id of the derivation
