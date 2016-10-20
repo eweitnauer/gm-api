@@ -100,6 +100,8 @@ Updates the font size of the derivation.
 
 <a name="getLastRow" href="#getLastRow">#</a> derivation.**getLastModel**()
 
+
+
 Returns the `AlgebraModel` of the last line in the derivation.
 
 ### Events
@@ -115,3 +117,15 @@ Event object passed to the callback:
 , model // AlgebraModel, the new / changed model
 }
 ```
+
+## AlgebraModel
+
+Represents the state of a single algebraic expression.
+
+## AlgebraView
+
+Visualizes an AlgebraModel and allows user interaction.
+
+## Actions
+
+Graspable Math comes with a large library of actions that define mathematical transformations and the gestures that trigger them.
