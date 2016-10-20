@@ -62,7 +62,6 @@ This canvas element represents an algebraic deriavation that can consist of seve
 | font_size | initial fontsize | `50` |
 | collapsed_mode | create new lines on top of previous ones | `true` |
 | auto_collapse_repeated_actions | collapse subsequent lines triggered by same action | `true` |
-| draggable | allows user to move derivation | `true` |
 | hide_handles | hides line handles | `false` |
 | wiggle | initially wiggle some terms, e.g. `"1+2"` or `["1", "2", "3"]` | `[]` |
 | cloning_on | allow cloning of lines of this derivation | `true` |
