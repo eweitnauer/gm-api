@@ -47,3 +47,15 @@ Shows a text notice at the top of the canvas. The message is automatically dismi
 <a name="showNotice" href="#showNotice">#</a> cmodel.**hideNotice**()
 
 Hide any currently visible text notice.
+
+
+## Derivation
+
+This canvas element represents an algebraic deriavation that can consist of several lines (rows). Each row has an `AlgebraModel`, an `AlgebraView` and for most rows an `Action` that created the row. Derivations should be created through the [createElement](#createElement) method of a CanvasModel.
+
+**constructor options**
+
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
