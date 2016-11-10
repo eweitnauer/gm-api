@@ -22,7 +22,6 @@ Minimal example:
 loadGM(initCanvas, { version: '0.12.6' });
 
 function initCanvas() {
-  console.log('using gmath version', gmath.version);
   canvas = new gmath.Canvas('#gm-div');
   canvas.model.createElement('derivation', { eq: '2x+1=3', pos: { x: 'center', y: 50 } });
 }
