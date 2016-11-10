@@ -1,3 +1,5 @@
+*(gmath version 0.12.6)*
+
 ## gm-inject
 
 **loadGM**(*options*)
