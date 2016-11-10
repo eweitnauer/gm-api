@@ -53,7 +53,7 @@ Unless disabled, the user can create new derivations and remove existing ones on
 
 ### Changes in the State of a Derivation
 
-In order to react to the mathematical state of derivations on a canvas, you can listen to `el_changed` events on a canvas with `canvas.model.on('el_changed', callback)`. The event object passed to the callback function looks like this:
+In order to react to changes a user makes to elements on a canvas, such as derivations, you can listen to `el_changed` events with `canvas.model.on('el_changed', callback)`. The event object passed to the callback function looks like this:
 
 * `type`... 'el_changed'
 * `target`... a reference to the canvas element (use `target.type` to check what kind of element it is)
