@@ -1,4 +1,6 @@
-# Quick Start (gmath 0.12.6 or later)
+# Quick Start
+
+*(gmath version 0.12.6 or later)*
 
 The GM Canvas is the top-level object that handles embedding GM into a page, is the container for all GM elements such as algebra derivations, and handles logging user actions. Most of the canvas functionality, such as drawing and erasing, can be switched off if not needed.
 
