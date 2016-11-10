@@ -4,7 +4,7 @@
 
 **loadGM**(*options*)
 
-Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inject.js) script in an html page provides the `loadGM()` method. Calling it injects the gmath library, the d3 library, jquery and bootstrap, as well as several stylesheet files into the page. The *options* parameter needs to specify which gmath version to load, such as `{version: '0.12.2'}`.
+Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inject.js) script in an html page provides the `loadGM()` method. Calling it injects the gmath library, the d3 library, jquery and bootstrap, as well as several stylesheet files into the page. The *options* parameter needs to specify which gmath version to load, such as `{version: '0.12.6'}`.
 
 # Canvas
 
