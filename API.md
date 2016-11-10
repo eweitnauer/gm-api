@@ -50,7 +50,7 @@ Hide any currently visible text notice.
 
 ### Events
 
-<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.**events.on**(**'create'**, *callback*)
+<a name="cmodel-on-create" href="#cmodel-on-create">#</a> cmodel.**events.on**(**'create'**, *callback*)
 
 Event object passed to the callback:
 
@@ -61,7 +61,7 @@ Event object passed to the callback:
 };
 ```
 
-<a name="cmodel-on-change" href="#cmodel-on-change">#</a> cmodel.**events.on**(**'remove'**, *callback*)
+<a name="cmodel-on-remove" href="#cmodel-on-remove">#</a> cmodel.**events.on**(**'remove'**, *callback*)
 
 Event object passed to the callback:
 
@@ -69,6 +69,18 @@ Event object passed to the callback:
 { type: 'remove'
 , target_type // element type, such as 'derivation'
 , target // the element
+};
+```
+
+<a name="cmodel-on-el-changed" href="#cmodel-on-el-changed">#</a> cmodel.**events.on**(**'el_changed'**, *callback*)
+
+Event object passed to the callback:
+
+```
+{ type: 'el_changed'
+, target_type // element type, such as 'derivation'
+, target // the element
+, last_eq // ascii string of the last derivation row (only for derivations)
 };
 ```
 
