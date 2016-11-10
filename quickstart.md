@@ -17,11 +17,11 @@ Minimal example:
 <body>
 <div id='gm-div' style="margin: 20px; height: 400px"></div>
 <script>
-loadGM(initCanvas, { version: '0.12.1' });
+loadGM(initCanvas, { version: '0.12.6' });
 
 function initCanvas() {
   console.log('using gmath version', gmath.version);
-  canvas = gmath.insertCanvas('#gm-div');
+  canvas = new gmath.Canvas('#gm-div');
   canvas.model.createElement('derivation', { eq: '2x+1=3', pos: { x: 'center', y: 50 } });
 }
 </script>
@@ -52,34 +52,19 @@ Unless disabled, the user can create new derivations and remove existing ones on
 
 ### Changes in the State of a Derivation
 
-In order to react to the mathematical state of derivations on a canvas, you can listen to change events on a derivation. If `der` is a derivation object, use `der.events.on('change', callback)`. The callback method will be called with an event object with these fields:
+In order to react to the mathematical state of derivations on a canvas, you can listen to `el_changed` events on a canvas with `canvas.model.on('el_changed', callback)`. The event object passed to the callback function looks like this:
 
-this.type = 'Change';
-  this.performee = id;
-  this.performee_type = 'DL';
-  this.time = Date.now();
-  this.row = row_idx;
-  this.model = model;
+* `type`... 'el_changed'
+* `target`... a reference to the canvas element (use `target.type` to check what kind of element it is)
+* `last_eq`... only for derivations: ascii representation of the equation in the last row of the derivation
 
-* `type`... is 'change'
-* `row`... index of the derivation row that changed or was created
-* `model`... an AlgebraModel object of the changed or new row
+To check the state of the whole derivation, you can iterate over its rows array (`der.rows`), look at the model in each row (`der.rows[0].model`), and get an ascii representation (`der.rows[0].model.to_ascii()`).
 
-Call `model.to_ascii()` to get a string representation of the model's state. To check the state of a whole derivation, you can iterate over its rows array (`der.rows`) and look at the model in each row (`der.rows[0].model`).
-
-Here is a code example that listens to change events on all derivations on a canvas and creates a textbox with the text "Success!" when any of the derivations reaches the state "x=1". Call this method in the above example right after inserting the canvas.
+Here is a code example that listens to change events on all derivations on a canvas and shows a "Success" textbox when any of the derivations reaches the state "x=1". Add these lines the the end of the `initCanvas` function in the code above.
 
 ```js
-function setupListeners(canvas) {
-  canvas.model.on('create', function(evt) {
-    if (evt.target.type !== 'derivation') return;
-    // register a change listener on each new derivation
-    evt.target.events.on('change', function(evt) {
-    	console.log('new state: ', evt.model.to_ascii());
-      if (evt.model.to_ascii() === 'x=1') {
-        canvas.model.createElement('textbox', { text: 'Success!', pos: { x: 20, y: 20 }});
-      }
-    });
+  canvas.model.on('el_changed', function(evt) {
+    console.log(evt.last_eq);
+    if (evt.last_eq === 'x=1') canvas.showHint('Success :)');
   });
-}
 ```
