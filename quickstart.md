@@ -4,9 +4,25 @@
 
 The GM Canvas is the top-level object that handles embedding GM into a page, is the container for all GM elements such as algebra derivations, and handles logging user actions. Most of the canvas functionality, such as drawing and erasing, can be switched off if not needed.
 
+## Embedding in an iframe
+
+When editing a canvas on graspablemath.com/canvas, you can use the share button to generate a code snippet that loads GM inside an iframe. Adjust the parameters as needed, as in this example html page:
+
+```html
+<!doctype html>
+<meta charset="utf-8">
+<title>Test</title>
+<body>
+<!-- Include this in your page (Start) -->
+<script type="text/javascript">url = parent.document.URL; document.write('<iframe style="border: none" src=\'https://graspablemath.com/canvas/embed.html?load=_e0df6d1a59896f82&options={"use_toolbar": false, "vertical_scroll": false }&parent_url='+url+'\' width=100% height=400px></iframe>')
+</script>
+<!-- Include this in your page (End) -->
+</body>
+```
+
 ## Embedding a Graspable Math Canvas
 
-In order to include the GM canvas into a web page, include a script tag to load the `gm-inject.js` script. Then call the `loadGM` method to load all GM scripts and css files when you want to use GM on the page. Pass a callback to `loadGM` get notified when everything is ready. At that point, you can insert a GM canvas into the page using `gmath.insertCanvas()`.
+In order to include the GM canvas directly into a web page, include a script tag to load the `gm-inject.js` script. Then call the `loadGM` method to load all GM scripts and css files when you want to use GM on the page. Pass a callback to `loadGM` get notified when everything is ready. At that point, you can insert a GM canvas into the page using `gmath.insertCanvas()`.
 
 Minimal example:
 
