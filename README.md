@@ -1,6 +1,7 @@
 # Graspable Math
 
 [![Join the chat at https://gitter.im/Graspable-Math-API/Lobby](https://badges.gitter.im/Graspable-Math-API/Lobby.svg)](https://gitter.im/Graspable-Math-API/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <img align=right src="https://graspablemath.com/shared/imgs/gm-logo-120.png">
 Graspable Math is an interactive algebra notation. It makes algebra explorable, even for beginners, by transforming pen and paper derivations into a dynamic, digital form. Visit the [Graspable Math homepage](https://graspablemath.com) to learn more.
 
