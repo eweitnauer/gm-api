@@ -157,6 +157,10 @@ Event object passed to the callback:
 }
 ```
 
+<a name="der-on-mistake" href="#der-on-mistake">#</a> derivation.**events.on**(**'mistake'**, *callback*)
+
+This forwards mistake events triggered on any `AlgebraModel` in the derivation. A reference to the `AlgebraModel` is passed to the callback function. The mistake event will be fired if the user clicks on a term that does not trigger an action. This happens, for example, when clicking on the `+` in `2+3*4`, but also when clicking on `10` in `10`, or on `x` in `x=2` or on `1` in `1+2`.
+
 ## AlgebraModel
 
 Represents the state of a single algebraic expression.
