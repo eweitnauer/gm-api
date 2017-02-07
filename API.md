@@ -94,6 +94,8 @@ The following options can be used with any `CanvasElement`.
 
 ### constructor options
 
+| Option | Description | Default Value |
+| --- | --- | --- |
 | `pos` | initial position | `{x: 'center', y: 'center'}` |
 | `size` | initial size, some element types manage the size automatically | `{width: 100, height: 60}` |
 | `min_size` | minimum size during resizing | `{ width: 30, height: 50 }` |
