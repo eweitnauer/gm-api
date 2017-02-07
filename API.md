@@ -133,13 +133,15 @@ This canvas element represents an algebraic deriavation that can consist of seve
 
 Set the last line of the derivation to the passed expression string.
 
+<a name="startWiggle" href="#startWiggle">#</a> derivation.**startWiggle**(*sels*)
+
+Pass a single term selector string or an array of term selector strings to wiggle nodes in the last line of the derivation. For example, in a derivation with `x+2x+3x` in the last line, call `derivation.startWiggle('2*x')` to wiggle the `2x` or call `derivation.startWiggle('+:2')` to wiggle the second `+`.
+
 <a name="setFontSize" href="#setFontSize">#</a> derivation.**setFontSize**(*font_size*)
 
 Updates the font size of the derivation.
 
 <a name="getLastRow" href="#getLastRow">#</a> derivation.**getLastModel**()
-
-
 
 Returns the `AlgebraModel` of the last line in the derivation.
 
