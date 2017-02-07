@@ -86,6 +86,25 @@ Event object passed to the callback:
 };
 ```
 
+## CanvasElements
+
+Each element on the canvas like textboxes, images, geogebra elements, and derivations all share the same base class `CanvasElement`, which handles interactions like dragging, resizing, removing.
+
+The following options can be used with any `CanvasElement`.
+
+### constructor options
+
+| `pos` | initial position | `{x: 'center', y: 'center'}` |
+| `size` | initial size, some element types manage the size automatically | `{width: 100, height: 60}` |
+| `min_size` | minimum size during resizing | `{ width: 30, height: 50 }` |
+| `resizable` | can the user resize the element? | `{ x: true, y: true }` |
+| `active` | is the element currently selected? | `false` |
+| `mode` | current mode, allowed modes are `edit` and `arrange` | `edit` |
+| `draggable` | allow users to drag the element | `true` |
+| `keep_in_container` | don't allow users to drag the element beyond the size of the container | `true` |
+| `edit_mode_drag_box_width` | width of the draggable area left of the element | `20` |
+| `show_bg` | only displays background color if true | `true` |
+
 ## Derivation
 
 This canvas element represents an algebraic deriavation that can consist of several lines (rows). Each row has an `AlgebraModel`, an `AlgebraView` and for most rows an `Action` that created the row. Derivations should be created through the [createElement](#createElement) method of a CanvasModel.
@@ -94,15 +113,19 @@ This canvas element represents an algebraic deriavation that can consist of seve
 
 | Option | Description | Default Value |
 | --- | --- | --- |
-| eq | initial equation | - |
-| pos | initial position | `{x: 'center', y: 'center'}` |
-| font_size | initial fontsize | `50` |
-| collapsed_mode | create new lines on top of previous ones | `true` |
-| auto_collapse_repeated_actions | collapse subsequent lines triggered by same action | `true` |
-| hide_handles | hides line handles | `false` |
-| wiggle | initially wiggle some terms, e.g. `"1+2"` or `["1", "2", "3"]` | `[]` |
-| cloning_on | allow cloning of lines of this derivation | `true` |
-| action_blacklist | disable actions with provided names | `[]` |
+| `eq` | initial equation | - |
+| `font_size` | initial fontsize | `50` |
+| `collapsed_mode` | create new lines on top of previous ones | `true` |
+| `auto_collapse_repeated_actions` | collapse subsequent lines triggered by same action | `true` |
+| `hide_handles` | hides line handles | `false` |
+| `handle_pos` | `left` or `right` | `right` |
+| `wiggle` | initially wiggle some terms, e.g. `"1+2"` or `["1", "2", "3"]` | `[]` |
+| `cloning_on` | allow cloning of lines of this derivation | `true` |
+| `action_blacklist` | disable actions with provided names | `[]` |
+| `row_padding` | padding around each derivation row | `{left: 10, right: 45, top: 7, bottom: 3 }` |
+| `padding` | padding around each line's `AlgebraView` | `{left: 20, right: 5, top: 5, bottom: 5 }` |
+| `handle_stroke_color` | color of the line handles | `#ddd` |
+| `mode` | current mode, allowed modes are `edit`, `arrange`, `inspect` | `edit` |
 
 <a name="setExpression" href="#setExpression">#</a> derivation.**setExpression**(*expr_str*)
 
