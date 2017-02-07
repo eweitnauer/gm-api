@@ -101,7 +101,7 @@ The following options can be used with any `CanvasElement`.
 | `min_size` | minimum size during resizing | `{ width: 30, height: 50 }` |
 | `resizable` | can the user resize the element? | `{ x: true, y: true }` |
 | `active` | is the element currently selected? | `false` |
-| `mode` | current mode, allowed modes are `edit` and `arrange` | `edit` |
+| `mode` | current mode, allowed modes are `'edit'` and `'arrange'` | `'edit'` |
 | `draggable` | allow users to drag the element | `true` |
 | `keep_in_container` | don't allow users to drag the element beyond the size of the container | `true` |
 | `edit_mode_drag_box_width` | width of the draggable area left of the element | `20` |
@@ -127,7 +127,7 @@ This canvas element represents an algebraic deriavation that can consist of seve
 | `row_padding` | padding around each derivation row | `{left: 10, right: 45, top: 7, bottom: 3 }` |
 | `padding` | padding around each line's `AlgebraView` | `{left: 20, right: 5, top: 5, bottom: 5 }` |
 | `handle_stroke_color` | color of the line handles | `#ddd` |
-| `mode` | current mode, allowed modes are `edit`, `arrange`, `inspect` | `edit` |
+| `mode` | current mode, allowed modes are `'edit'`, `'arrange'`, `'inspect'` | `'edit'` |
 
 <a name="setExpression" href="#setExpression">#</a> derivation.**setExpression**(*expr_str*)
 
