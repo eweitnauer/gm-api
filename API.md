@@ -1,4 +1,4 @@
-*(gmath version 0.12.6)*
+*(gmath version 1.0.1)*
 
 ## gm-inject
 
@@ -9,6 +9,22 @@ Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inje
 # Canvas
 
 The canvas ties together a toolbar and a working area where the user can draw and erase, as well as create canvas elements and interact with them. Each canvas element has a type, such as 'derivation' or 'textbox', and a  unique id. The working area has a fixed width, but can extend vertically as needed to make space for new elements or paths.
+
+## CanvasController
+
+Manages user interactions with the canvas. When creating a new canvas with `let canvas = new gmath.Canvas(...)`, you can access the controller at `canvas.controller`.
+
+<a name="undo" href="#cc-undo">#</a> controller.**undo**()
+
+Undoes the last action taken on the canvas, like performing an action in a derivation or hiding and showing lines in a derivation.
+
+<a name="redo" href="#cc-redo">#</a> controller.**redo**()
+
+Redoes an action that was just undone.
+
+<a name="reset" href="#cc-redo">#</a> controller.**reset**()
+
+Removes all elements from the canvas.
 
 ## CanvasModel
 
