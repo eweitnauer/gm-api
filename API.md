@@ -1,4 +1,4 @@
-*(gmath version 1.0.1)*
+*(gmath version 1.0.4)*
 
 ## gm-inject
 
@@ -90,9 +90,23 @@ Event object passed to the callback:
 };
 ```
 
-<a name="cmodel-on-el-changed" href="#cmodel-on-el-changed">#</a> cmodel.**on**(**'el_changed'**, *callback*)
+<a name="cmodel-on-el-change" href="#cmodel-on-el-change">#</a> cmodel.**on**(**'el_change'**, *callback*)
+
+This event is emitted if any of the derivations on the canvas was changed by the user. The event is emitted during the current interaction, so the user is typically still dragging terms while this event is emitted. This means the element the user is interacting with should not be removed.
 
 Event object passed to the callback:
+
+```
+{ type: 'el_changed'
+, target_type // element type, such as 'derivation'
+, target // the element
+, last_eq // ascii string of the last derivation row (only for derivations)
+};
+```
+
+<a name="cmodel-on-el-changed" href="#cmodel-on-el-changed">#</a> cmodel.**on**(**'el_changed'**, *callback*)
+
+Like the change event, but is only emitted at the end of the user interaction, when the user let go of the mouse button. If the user performs several algebra transformations with one mouse drag, several `change` events will be emitted, but only a single `changed` event at the very end. It is save to remove the derivation at the `changed` event.
 
 ```
 { type: 'el_changed'
