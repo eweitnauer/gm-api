@@ -97,7 +97,7 @@ This event is emitted if any of the derivations on the canvas was changed by the
 Event object passed to the callback:
 
 ```
-{ type: 'el_changed'
+{ type: 'el_change'
 , target_type // element type, such as 'derivation'
 , target // the element
 , last_eq // ascii string of the last derivation row (only for derivations)
