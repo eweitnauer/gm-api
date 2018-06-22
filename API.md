@@ -10,6 +10,22 @@ Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inje
 
 The canvas ties together a toolbar and a working area where the user can draw and erase, as well as create canvas elements and interact with them. Each canvas element has a type, such as 'derivation' or 'textbox', and a  unique id. The working area has a fixed width, but can extend vertically as needed to make space for new elements or paths.
 
+To create a canvas, use `new gmath.Canvas(domSelector, options)`.
+
+### constructor options
+
+| Option | Description | Default Value |
+| --- | --- | --- |
+| `width` | width | `100%` |
+| `height` | height | `100%` |
+| `vertical_scroll` | automatically grow canvas (infinite scolling) | `true` |
+| `use_hold_menu` | click & hold opens context menu if set to true | `true` |
+| `drawing` | enable / disable drawing and erasing on the canvas | `true` |
+| `use_toolbar` | enable / disable the toolbar | `true` |
+| `saving_and_loading` | enable / disable load and save buttons in the toolbar | `true` |
+| `enable_google_classroom` | enable / disable the share to google classroom option | `false` |
+| `ask_comfirmation_on_closing` | ask for confirmation when leaving the page with unsaved changes | `true` |
+
 ## CanvasController
 
 Manages user interactions with the canvas. When creating a new canvas with `let canvas = new gmath.Canvas(...)`, you can access the controller at `canvas.controller`.
@@ -206,3 +222,9 @@ Visualizes an AlgebraModel and allows user interaction.
 ## Actions
 
 Graspable Math comes with a large library of actions that define mathematical transformations and the gestures that trigger them.
+
+# Logging User Interactions
+
+Graspable Math by default logs user interactions with the canvas. Use `gmath.setupLogging(options)` to switch logging on or off and provide an ID by which the log data is grouped for later retrieval. Options: `{ experiment_id: string, enabled: Boolean }`. 
+
+If logging is switched on, use `gmath.TrialLogger.startTrial(idx, custom_data)` and `gmath.TrialLogger.endTrial()` or `gmath.TrialLogger.postTrial()` to further group logging data for later analysis. This is mostly useful for running experiments.
