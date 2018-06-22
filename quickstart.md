@@ -1,6 +1,6 @@
 # Quick Start
 
-*(gmath version 0.12.6 or later)*
+*(gmath version 2.6.6 or later)*
 
 The GM Canvas is the top-level object that handles embedding GM into a page, is the container for all GM elements such as algebra derivations, and handles logging user actions. Most of the canvas functionality, such as drawing and erasing, can be switched off if not needed.
 
@@ -35,25 +35,26 @@ Minimal example:
 <body>
 <div id='gm-div' style="margin: 20px; height: 400px"></div>
 <script>
-loadGM(initCanvas, { version: '0.12.6' });
+loadGM(initCanvas, { version: 'latest' });
 
 function initCanvas() {
   canvas = new gmath.Canvas('#gm-div');
   canvas.model.createElement('derivation', { eq: '2x+1=3', pos: { x: 'center', y: 50 } });
 }
 </script>
+</body>
 ```
 
 ## Loading and Saving a Canvas State
 
-Use the methods `canvas.saveToJSON()` and `canvas.loadFromJSON()` to save and load canvas states.
+Use the methods `canvas.toJSON()` and `canvas.loadFromJSON()` to save and load canvas states.
 
 ## Creating Derivations
 
 To create a derivation on an existing canvas, use the `canvas.model.createElement()` method. This method takes up to four arguments. See the code example above.
 
-* `type`... must be "derivation"
-* `options`... an js object specifying settings like the position and initial equation
+* `type`... use "derivation"
+* `options`... an js object specifying settings like the position and initial equation (e.g.: `{pos: 'auto', eq: '2(a+b)'}`)
 * `method`... optional, a string that is recorded during logging
 * `callback`... optional, a method that is called after the derivation is initialized and displayed, the derivation is passed as the first argument
 
@@ -77,7 +78,7 @@ In order to react to changes a user makes to elements on a canvas, such as deriv
 
 To check the state of the whole derivation, you can iterate over its rows array (`der.rows`), look at the model in each row (`der.rows[0].model`), and get an ascii representation (`der.rows[0].model.to_ascii()`).
 
-Here is a code example that listens to change events on all derivations on a canvas and shows a "Success" textbox when any of the derivations reaches the state "x=1". Add these lines the the end of the `initCanvas` function in the code above.
+Here is a code example that listens to change events on all derivations on a canvas and shows a "Success" notice when any of the derivations reaches the state "x=1". Add these lines the the end of the `initCanvas` function in the code above.
 
 ```js
   canvas.model.on('el_changed', function(evt) {
