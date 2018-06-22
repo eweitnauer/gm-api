@@ -1,10 +1,10 @@
-*(gmath version 1.0.4)*
+*(gmath version 2.6.6)*
 
 ## gm-inject
 
 **loadGM**(*options*)
 
-Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inject.js) script in an html page provides the `loadGM()` method. Calling it injects the gmath library, the d3 library, jquery and bootstrap, as well as several stylesheet files into the page. The *options* parameter needs to specify which gmath version to load, such as `{version: '1.0.1'}`.
+Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inject.js) script in an html page provides the `loadGM()` method. Calling it injects the gmath library, the d3 library, jquery and bootstrap, as well as several stylesheet files into the page. The *options* parameter needs to specify which gmath version to load, such as `{version: '2.6.6'}` or `{version: 'latest'}`.
 
 # Canvas
 
@@ -136,6 +136,8 @@ The following options can be used with any `CanvasElement`.
 | `keep_in_container` | don't allow users to drag the element beyond the size of the container | `true` |
 | `edit_mode_drag_box_width` | width of the draggable area left of the element | `20` |
 | `show_bg` | only displays background color if true | `true` |
+
+If `pos` is set to the string `'auto'`, GM will attempt to place it at an empty, visible spot on the canvas.
 
 ## Derivation
 
