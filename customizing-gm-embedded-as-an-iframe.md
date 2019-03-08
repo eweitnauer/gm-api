@@ -56,4 +56,3 @@ You can customize the options in the URL of the code snippet after the `embed.ht
 | `"demo_video_idle_time"` | `false` | `false` or a number | If set to a number X, will show video dialog after X ms of inactivity |
 | `"disable_notifications"` | `false` | boolean | Whether to show notifications, such as the banner that says to try double-clicking |
 | `"enable_google_classroom"` | `false` | boolean | Whether to allow features involving Google Classroom, such as the option in the "share" menu |
-| `"enable_external_api"` | `false` | boolean | Set to true to enable communication across iframe via postMessage |
