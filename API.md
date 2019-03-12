@@ -10,21 +10,7 @@ Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inje
 
 The canvas ties together a toolbar and a working area where the user can draw and erase, as well as create canvas elements and interact with them. Each canvas element has a type, such as 'derivation' or 'textbox', and a  unique id. The working area has a fixed width, but can extend vertically as needed to make space for new elements or paths.
 
-To create a canvas, use `new gmath.Canvas(domSelector, options)`.
-
-### constructor options
-
-| Option | Description | Default Value |
-| --- | --- | --- |
-| `width` | width | `100%` |
-| `height` | height | `100%` |
-| `vertical_scroll` | automatically grow canvas (infinite scolling) | `true` |
-| `use_hold_menu` | click & hold opens context menu if set to true | `true` |
-| `drawing` | enable / disable drawing and erasing on the canvas | `true` |
-| `use_toolbar` | enable / disable the toolbar | `true` |
-| `saving_and_loading` | enable / disable load and save buttons in the toolbar | `true` |
-| `enable_google_classroom` | enable / disable the share to google classroom option | `false` |
-| `ask_comfirmation_on_closing` | ask for confirmation when leaving the page with unsaved changes | `true` |
+To create a canvas, use `new gmath.Canvas(domSelector, options)`. See the large table on [this page](https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md) for documentation on the many things you can customize with that `options` parameter.
 
 ## CanvasController
 
