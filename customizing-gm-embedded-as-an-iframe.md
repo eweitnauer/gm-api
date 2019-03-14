@@ -46,7 +46,7 @@ You can customize the options in the URL of the code snippet after the `embed.ht
 | `"identification_interval"` | `false` | `false` or a number | If set to a number X, will show login dialog after X ms of inactivity |
 | `"insert_btn"` | `true` | boolean | Whether to show the "insert" button on the toolbar |
 | `"insert_menu_items"` | `{ "derivation": true, "homework": true, "textbox": true, "ggb_graphing": true, "ggb_geometry": true, "ggb_3d": true, "video": true }` | a JSON object like the default value | Allows you to make it so some items are not on the "insert" menu |
-| `"keybad_btn"` | `true` | boolean | Whether to show the "keypad" button on the toolbar |
+| `"keypad_btn"` | `true` | boolean | Whether to show the "keypad" button on the toolbar |
 | `"keyboard_max_width"` | `800` | number | Number of pixels of the maximum width of the keyboard |
 | `"load_btn"` | `true` | boolean | Whether to show the "load" button on the tooolbar |
 | `"new_sheet_btn"` | `true` | boolean | Whether to show the "new" button on the toolbar |
