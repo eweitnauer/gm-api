@@ -50,6 +50,7 @@ You can customize the options in the URL of the code snippet after the `embed.ht
 | `"keyboard_max_width"` | `800` | number | Number of pixels of the maximum width of the keyboard |
 | `"load_btn"` | `true` | boolean | Whether to show the "load" button on the tooolbar |
 | `"new_sheet_btn"` | `true` | boolean | Whether to show the "new" button on the toolbar |
+| `"overflow_visible"` | `false` | boolean | Whether to render parts of expressions that you drag beyond the borders of the canvas |
 | `"redo_btn"` | `true` | boolean | Whether to show the "redo" button on the toolbar |
 | `"save_btn"` | `true` | boolean | Whether to show the "save" button on the tooolbar |
 | `"scrub_btn"` | `true` | boolean | Whether to show the "scrub" button on the toolbar |
