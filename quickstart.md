@@ -6,7 +6,7 @@ The GM Canvas is the top-level object that handles embedding GM into a page, is 
 
 ## Embedding in an iframe
 
-When editing a canvas on graspablemath.com/canvas, you can use the share button to generate a code snippet that loads GM inside an iframe. Adjust the parameters as needed, as in this example html page:
+When editing a canvas on graspablemath.com/canvas, you can use the "share" button to generate a code snippet that loads GM inside an iframe, as in this example html page:
 
 ```html
 <!doctype html>
@@ -19,6 +19,8 @@ When editing a canvas on graspablemath.com/canvas, you can use the share button 
 <!-- Include this in your page (End) -->
 </body>
 ```
+
+See [Customizing GM embedded as an iframe](https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md) for help customizing this.
 
 ## Embedding a Graspable Math Canvas
 
