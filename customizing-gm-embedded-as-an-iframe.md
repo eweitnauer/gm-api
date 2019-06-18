@@ -62,5 +62,6 @@ You can customize the options in the URL of the code snippet after the `embed.ht
 | `"transform_btn"` | `true` | boolean | Whether to show the "transform" button on the toolbar |
 | `"undo_btn"` | `true` | boolean | Whether to show the "undo" button on the toolbar |
 | `"use_toolbar"` | `true` | boolean | Whether to show the toolbar |
-| `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas (infinite scrolling). This cannot be turned off if you are embedding GM in an iframe. |
+| `"horizontal_scroll"` | `true` | boolean | Whether to automatically grow the canvas horizontally, as needed |
+| `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas vertically, as needed. This cannot be turned off if you are embedding GM in an iframe using `embed.html`. |
 | `"use_hold_menu"` | `true` | boolean | If this is true and you click & hold somewhere on some blank part of the canvas, then a circular menu will appear |
