@@ -36,6 +36,7 @@ You can customize the options in the URL of the code snippet after the `embed.ht
 | `"display_labels"` | `true` | boolean | Whether to show labels on the toolbar buttons |
 | `"draw_btn"` | `true` | boolean | Whether to show the "draw" button on the toolbar |
 | `"enable_google_classroom"` | `false` | boolean | enable / disable the share to google classroom option |
+| `"use_built_in_saving_backend"` | `true` | boolean | See mentions of this [here](https://github.com/eweitnauer/gm-api/blob/master/quickstart.md#loading-and-saving-a-canvas-state) for details. This must be `true` if `"save_btn"` is `true`. |
 | `"erase_btn"` | `true` | boolean | Whether to show the "erase" button on the toolbar |
 | `"feedback"` | `false` | boolean | Whether to show the "feedback" button on the toolbar |
 | `"font_size_btns"` | `true` | boolean | Whether to show the font size buttons on the toolbar ("larger" and "smaller") |
