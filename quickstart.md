@@ -40,7 +40,11 @@ Minimal example:
 loadGM(initCanvas, { version: 'latest' });
 
 function initCanvas() {
-  canvas = new gmath.Canvas('#gm-div');
+  const canvasOptions = {
+    // You may use options described on
+    // https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md#options-that-go-in-the-options-option-described-above
+  }
+  canvas = new gmath.Canvas('#gm-div', canvasOptions);
   canvas.model.createElement('derivation', { eq: '2x+1=3', pos: { x: 'center', y: 50 } });
 }
 </script>
