@@ -65,7 +65,7 @@ Then you must set the `"use_built_in_saving_backend"` and `"save_btn"` canvas op
 If you do not heed our warning to set `"use_built_in_saving_backend"` to `false`, then images on the canvas will be uploaded to servers we control,
 and, instead of storing the images as data URLs along with the rest of the canvas, only links to the uploaded images will be stored in the canvas.
 This makes the file size of a canvas containing an image orders of magnitude smaller, probably.
-Since links to those uploaded images will not exist in any serialized canvas stored in our databases, those images will be deleted when the servers are cleaned.
+Since links to those uploaded images will not exist in any serialized canvas stored in our databases, those images will be deleted when our servers are cleaned.
 
 Once you have done set those canvas options, then you may use `canvas.asyncStringify()` to save a canvas' state. Use `canvas.loadFromJSON(json, clearCanvas=true, callback=null)` to load a canvas' state.
 
