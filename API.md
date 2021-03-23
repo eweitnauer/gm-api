@@ -2,15 +2,7 @@
 
 # Graspable Math API Documentation
 
-Graspable Math organizes elements inside of `GM Canvas` objects, which are configurable digital whitboards. Math work is organized in derivations, which contain a list of derivation rows, which each contains an AlgebraView, an AlgebraModel, and - if that row was the result of a math action, an Action.
-
-![image](https://user-images.githubusercontent.com/53043/112194551-60076f80-8bdf-11eb-9148-a9ca8899b511.png)
-
-Graspable Math puts great emphasis on smooth animations of the math transformations. Here are some of the visual elements involved.
-
-![image](https://user-images.githubusercontent.com/53043/112194634-76adc680-8bdf-11eb-8720-289ba9255f9f.png)
-
-## gm-inject
+## Integrating GM into a webpage or web application
 
 **loadGM**(*options*)
 
@@ -37,6 +29,18 @@ function initCanvas() {
 </script>
 </body>
 ```
+
+A more complex example is [here](https://github.com/eweitnauer/gm-api/blob/master/examples/dark.html).
+
+## Overview
+
+Graspable Math organizes elements inside of `GM Canvas` objects, which are configurable digital whitboards. Math work is organized in derivations, which contain a list of derivation rows, which each contains an AlgebraView, an AlgebraModel, and - if that row was the result of a math action, an Action.
+
+![image](https://user-images.githubusercontent.com/53043/112194551-60076f80-8bdf-11eb-9148-a9ca8899b511.png)
+
+Graspable Math puts great emphasis on smooth animations of the math transformations. Here are some of the visual elements involved.
+
+![image](https://user-images.githubusercontent.com/53043/112194634-76adc680-8bdf-11eb-8720-289ba9255f9f.png)
 
 ## Canvas
 
@@ -87,6 +91,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 | `"transform_btn"` | `true` | boolean | Whether to show the "transform" button on the toolbar |
 | `"undo_btn"` | `true` | boolean | Whether to show the "undo" button on the toolbar |
 | `"use_toolbar"` | `true` | boolean | Whether to show the toolbar |
+| `"horizontal_scroll"` | `true` | boolean | Whether to automatically grow the canvas horizontally, as needed |
 | `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas (infinite scrolling). This cannot be turned off if you are embedding GM in an iframe. |
 | `auto_resize_on_scroll` | `true` | boolean | If true, will extend the vertical size of the canvas when the user scrolls to the bottom |
 | `add_more_space_btn` | `false` | boolean | Show a button a the bottom of the canvas that adds more vertical space. Only enable if `auto_resize_on_scroll` is set to `false`. |
