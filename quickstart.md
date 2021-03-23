@@ -1,12 +1,12 @@
 # Quick Start
 
-*(gmath version 2.6.6 or later)*
+*(gmath version 2.24.11 or later)*
 
-The GM Canvas is the top-level object that handles embedding GM into a page, is the container for all GM elements such as algebra derivations, and handles logging user actions. Most of the canvas functionality, such as drawing and erasing, can be switched off if not needed.
+The GM Canvas is the top-level object that gives you access to the GM API. It is the container for all GM elements such as algebra derivations and handles logging user actions. The appearance and behavior of the canvas and interactive math expressions can be customized through settings. The API also allows you to modify math elements and to listen & react to user interactions.
 
 ## Embedding in an iframe
 
-When editing a canvas on graspablemath.com/canvas, you can use the "share" button to generate a code snippet that loads GM inside an iframe, as in this example html page:
+A quick, but less customizable way to integrate GM into a webpage is by loading it through a iframe. To do so, go to [math.new](https://math.new), create any content and save it, then click the "share" button to generate a code snippet that loads GM inside an iframe, as in this example html page:
 
 ```html
 <!doctype html>
@@ -24,7 +24,9 @@ See [Customizing GM embedded as an iframe](https://github.com/eweitnauer/gm-api/
 
 ## Embedding a Graspable Math Canvas
 
-In order to include the GM canvas directly into a web page, include a script tag to load the `gm-inject.js` script. Then call the `loadGM` method to load all GM scripts and css files when you want to use GM on the page. Pass a callback to `loadGM` get notified when everything is ready. At that point, you can insert a GM canvas into the page using `gmath.insertCanvas()`.
+The second way of addign a GM canvas to your web application embedds is directly into without using an iframe. This gives you full access to the API for customization and interactivity between GM and the rest of your page.
+
+In order to include the GM canvas directly into a web page, include a script tag to load the `gm-inject.js` script. The script provides the `loadGM` method. Call this method to asynchonously load all scripts and css files and fonts that GM needs to work. Pass a callback to `loadGM` to get notified when everything is ready. At that point, a global `gmath` object gives you access to the API. To insert a GM canvas into the page, use `new gmath.Canvas(cssSelector, canvasOptions)`.
 
 Minimal example:
 
@@ -60,14 +62,9 @@ That should work by default. The canvases will be saved on our servers.
 
 ### If you plan on storing saved canvases yourself
 
-Then you must set the `"use_built_in_saving_backend"` and `"save_btn"` canvas options to `false`.
-(To set canvas options, see [this section](https://github.com/eweitnauer/gm-api/blob/master/quickstart.md#embedding-a-graspable-math-canvas) or [this page](https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md) depending on your situation.)
-If you do not heed our warning to set `"use_built_in_saving_backend"` to `false`, then images on the canvas will be uploaded to servers we control,
-and, instead of storing the images as data URLs along with the rest of the canvas, only links to the uploaded images will be stored in the canvas.
-In most cases, this reduces the file size of a canvas containing images by orders of magnitude.
-Since links to those uploaded images will not exist in any serialized canvas stored in our databases, those images will be deleted when our servers are cleaned.
+Then you must set the `"use_built_in_saving_backend"` and `"save_btn"` canvas options to `false`. (For more on canvas options, see [this section](https://github.com/eweitnauer/gm-api/blob/master/API.md) If you don't set `"use_built_in_saving_backend"` to `false`, any images inserted onto the canvas may be uploaded to our servers and may be deleted by us from time to time.
 
-Once you have done set those canvas options, then you may use `canvas.asyncStringify()` to save a canvas' state. Use `canvas.loadFromJSON(json, clearCanvas=true, callback=null)` to load a canvas' state.
+You may use `canvas.asyncStringify()` to save a canvas state. Use `canvas.loadFromJSON(json, clearCanvas=true, callback=null)` to load a canvas state.
 
 ## Creating Derivations
 
@@ -77,7 +74,6 @@ To create a derivation on an existing canvas, use the `canvas.model.createElemen
 * `options`... an js object specifying settings like the position and initial equation (e.g.: `{pos: 'auto', eq: '2(a+b)'}`)
 * `method`... optional, a string that is recorded during logging
 * `callback`... optional, a method that is called after the derivation is initialized and displayed, the derivation is passed as the first argument
-
 
 ## Listening to Events
 
