@@ -2,6 +2,14 @@
 
 # Graspable Math API Documentation
 
+The Graspable Math library (GM) is currently used in the following places:
+
+- https://graspablemath.com
+- https://activities.graspablemath.com
+- https://www.geogebra.org/notes
+
+This document describes how to integrate GM into your own webpage or web application.
+
 ## Integrating GM into a webpage or web application
 
 **loadGM**(*options*)
