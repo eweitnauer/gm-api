@@ -4,11 +4,12 @@
 
 Graspable Math organizes elements inside of `GM Canvas` objects, which are configurable digital whitboards. Math work is organized in derivations, which contain a list of derivation rows, which each contains an AlgebraView, an AlgebraModel, and - if that row was the result of a math action, an Action.
 
-Image 1
+![image](https://user-images.githubusercontent.com/53043/112194551-60076f80-8bdf-11eb-9148-a9ca8899b511.png)
 
 Graspable Math puts great emphasis on smooth animations of the math transformations. Here are some of the visual elements involved.
 
-Image 2
+![image](https://user-images.githubusercontent.com/53043/112194634-76adc680-8bdf-11eb-8720-289ba9255f9f.png)
+
 ## gm-inject
 
 **loadGM**(*options*)
