@@ -1,0 +1,156 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>GM Canvas Example</title>
+<script src="https://graspablemath.com/shared/libs/gmath/gm-inject.js"></script>
+<style>
+  body {
+    height: 100%; padding: 2em 0; background: black;
+    font-family: Roboto, 'Open Sans', sans-serif
+  }
+  #gm-div-a {
+    width: 600px;
+    height: 300px;
+    border: 1px solid gray;
+  }
+  #gm-div-a .gm-canvas {
+    background-color: #333;
+  }
+
+  #gm-div-b {
+    width: 600px;
+    height: 150px;
+    border: black 1px solid;
+    border-radius: 8px;
+    box-shadow: lightblue 0 0 12px 1px;
+    transition: box-shadow 1s;
+    transition-delay: 0.5s;
+  }
+  #gm-div-b.success {
+    box-shadow: lightgreen 0 0 12px 3px;
+  }
+  #gm-div-b .gm-canvas {
+    border-radius: 8px;
+    background-color: #333;
+  }
+</style>
+
+<body>
+  <div style="width: 600px; margin: auto">
+    <h1 style="margin-bottom: 0; color: #cc8401">Example 1</h1>
+    <div style="text-align: right; user-select: none; margin-bottom: 1em; color: silver">
+      <span href="#" style="cursor: pointer" onclick="canvasB.controller.undo()">Undo</span>
+    </div>
+    <div id='gm-div-b'></div>
+    <h1 style="margin-top: 4em; color: #cc8401">Example 2</h1>
+    <div id='gm-div-a' style="width: 600px; height: 300px;"></div>
+    <p style="color: silver; margin-top: 5em">
+        This page demonstrates how to:
+        <ul style="color: silver">
+            <li>use settings to style GM for dark mode</li>
+            <li>create derivations with custom start states and positions</li>
+            <li>create derivations that only show the last step</li>
+            <li>connect an external "undo" button with a GM Canvas</li>
+            <li>react to changes in an expression as the user works on it</li>
+        </ul>
+     </p>
+  </div>
+
+  <script>
+    loadGM(initCanvas, { version: 'latest' });
+    function initCanvas() {
+      canvasA = new gmath.Canvas('#gm-div-a', canvasSmallToolbarSettings);
+      canvasB = new gmath.Canvas('#gm-div-b', canvasNoToolbarSettings);
+      canvasA.model.createElement('derivation', { 
+        eq: 'y=1+x',
+        pos: 'auto',
+        font_size: 30,
+        ...derivationDarkSettings,
+      });
+      canvasA.model.createElement('derivation', {
+        eq: 'x+2y=5',
+        pos: 'auto',
+        font_size: 30,
+        ...derivationDarkSettings,
+      });
+      const der = canvasB.model.createElement('derivation', {
+        eq: '1+2+3*4',
+        wiggle: ['+:1'],
+        font_size: 50,
+        ...singleLineDerivationSettings,
+        ...derivationDarkSettings,
+      });
+
+      function checkIfSolved() {
+        const solved = der.getLastModel().to_ascii() === '15';
+        document.querySelector('#gm-div-b').classList[solved ? 'add' : 'remove']('success');
+      }
+
+      der.events.on('change', checkIfSolved);
+      der.events.on('undo', checkIfSolved);
+    }
+
+    canvasSmallToolbarSettings = {
+      auto_resize_on_scroll: false,
+      add_more_space_btn: true,
+      use_toolbar: true,
+      undo_btn: true,
+      redo_btn: true,
+      new_sheet_btn: false,
+      font_size_btns: false,
+      formula_btn: true,
+      help_btn: false,
+      fullscreen_btn: false,
+      transform_btn: false,
+      keypad_btn: false,
+      scrub_btn: false,
+      draw_btn: false,
+      erase_btn: false,
+      arrange_btn: false,
+      save_btn: false,
+      load_btn: false,
+      settings_btn: false,
+      share_btn: false,
+      insert_btn: false,
+      use_hold_menu: false,
+      display_labels: false,
+      btn_size: 'xs',
+      ask_confirmation_on_closing: false,
+    }
+    canvasNoToolbarSettings = {
+      ...canvasSmallToolbarSettings,
+      add_more_space_btn: false,
+      vertical_scroll: false,
+      use_toolbar: false,
+    }
+    
+    singleLineDerivationSettings = {
+      font_size: 50,
+      h_align: 'center',
+      pos: { x: 'center', y: 'center' },
+      keep_in_container: false,
+      draggable: false,
+      no_handles: true,
+      collapsed_mode: true,
+      show_bg: false,
+    }
+    
+    derivationDarkSettings = {
+      row_background_color: '#333',
+      bg_edit_active_style: { 'background-color': '#333',
+                              'box-shadow': 'none' },
+      bg_edit_dragging_style: { 'background-color': '#444',
+                                'box-shadow': '0 3px 6px rgba(0,0,0,0.5)' },
+      handle_styles: {
+        'background': '#333',
+        'border-color': 'gray',
+        'border-width': '1px',
+      },
+      color: 'whitesmoke',
+      shadow_node_color: '#333', // used to fill shadow terms
+      shadow_node_shadow: '0 0 1px white, 0 0 1px white', // used for css box-shadow or text-shadow
+      selection_color: '#61A5DA', // color of selected nodes
+      drag_indicator_color: '#D49C83',
+      drag_indicator_opacity: 1,
+    }
+  </script>
+</body>
