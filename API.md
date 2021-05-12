@@ -321,4 +321,8 @@ Graspable Math comes with a large library of actions that define mathematical tr
 
 Graspable Math by default logs user interactions with the canvas. Use `gmath.setupLogging(options)` to switch logging on or off and provide an ID by which the log data is grouped for later retrieval. Options: `{ experiment_id: string, enabled: Boolean }`.
 
-If logging is switched on, use `gmath.TrialLogger.createTrial()` to group logging data for later analysis. This is mostly useful for running experiments.
+Graspable Math logging data are grouped into "trials."
+
+A `Canvas` instance will automatically create its own `DataLogger` and trial.
+
+If you want multiple `Canvas` instances to share a trial, or you want more control of the trials, use the `logger` option. You can create a `DataLogger` and give it to the `Canvas` on construction. A `Canvas` instance will only create a trial on construction if the logger doesn't have one already.
