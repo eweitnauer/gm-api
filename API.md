@@ -100,7 +100,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 | `"undo_btn"` | `true` | boolean | Whether to show the "undo" button on the toolbar |
 | `"use_toolbar"` | `true` | boolean | Whether to show the toolbar |
 | `"horizontal_scroll"` | `true` | boolean | Whether to automatically grow the canvas horizontally, as needed |
-| `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas (infinite scrolling). This cannot be turned off if you are embedding GM in an iframe. |
+| `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas vertically, as needed. This cannot be turned off if you are embedding GM in an iframe, using `embed.html`. |
 | `auto_resize_on_scroll` | `true` | boolean | If true, will extend the vertical size of the canvas when the user scrolls to the bottom |
 | `add_more_space_btn` | `false` | boolean | Show a button a the bottom of the canvas that adds more vertical space. Only enable if `auto_resize_on_scroll` is set to `false`. |
 | `"use_hold_menu"` | `true` | boolean | If this is true and you click & hold somewhere on some blank part of the canvas, then a circular menu will appear |
