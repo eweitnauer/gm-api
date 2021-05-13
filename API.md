@@ -247,7 +247,7 @@ This canvas element represents an algebraic deriavation that can consist of seve
 | `shadow_node_color` | color used to fill the shadow terms that show where a dragged expression originated | `'white'` |
 | `shadow_node_shadow` | css box-shadow or text-shadow of the shadow terms during dragging | `'0 0 1px gray, 0 0 1px black'` |
 | `selection_color` | color of selected nodes | `'#4682b4'` |
-| `drag_indicator_color` | color of the circle that indicates finger / mouse position during draggging | `'orange'` |
+| `drag_indicator_color` | color of the circle that indicates finger / mouse position during dragging | `'orange'` |
 | `drag_indicator_opacity` | opacity of the circle that indicates finger / mouse position during dragging | `0.4` |
 | `handle_styles` | css properties used for the handles | `handle_styles: { 'background': 'white', 'border-color': '#ddd', 'border-width': '2px' }` |
 | `row_background_color` | background color of derivation rows during dragging | `'white'` |

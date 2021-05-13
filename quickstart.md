@@ -24,9 +24,9 @@ See [Customizing GM embedded as an iframe](https://github.com/eweitnauer/gm-api/
 
 ## Embedding a Graspable Math Canvas
 
-The second way of addign a GM canvas to your web application embedds is directly into without using an iframe. This gives you full access to the API for customization and interactivity between GM and the rest of your page.
+The second way of adding a GM canvas to your web application embeds is directly into without using an iframe. This gives you full access to the API for customization and interactivity between GM and the rest of your page.
 
-In order to include the GM canvas directly into a web page, include a script tag to load the `gm-inject.js` script. The script provides the `loadGM` method. Call this method to asynchonously load all scripts and css files and fonts that GM needs to work. Pass a callback to `loadGM` to get notified when everything is ready. At that point, a global `gmath` object gives you access to the API. To insert a GM canvas into the page, use `new gmath.Canvas(cssSelector, canvasOptions)`.
+In order to include the GM canvas directly into a web page, include a script tag to load the `gm-inject.js` script. The script provides the `loadGM` method. Call this method to asynchronously load all scripts and css files and fonts that GM needs to work. Pass a callback to `loadGM` to get notified when everything is ready. At that point, a global `gmath` object gives you access to the API. To insert a GM canvas into the page, use `new gmath.Canvas(cssSelector, canvasOptions)`.
 
 Minimal example:
 
