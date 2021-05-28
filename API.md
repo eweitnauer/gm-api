@@ -100,7 +100,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 | `"undo_btn"` | `true` | boolean | Whether to show the "undo" button on the toolbar |
 | `"use_toolbar"` | `true` | boolean | Whether to show the toolbar |
 | `"horizontal_scroll"` | `true` | boolean | Whether to automatically grow the canvas horizontally, as needed |
-| `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas (infinite scrolling). This cannot be turned off if you are embedding GM in an iframe. |
+| `"vertical_scroll"` | `true` | boolean | Whether to automatically grow the canvas vertically, as needed. This cannot be turned off if you are embedding GM in an iframe, using `embed.html`. |
 | `auto_resize_on_scroll` | `true` | boolean | If true, will extend the vertical size of the canvas when the user scrolls to the bottom |
 | `add_more_space_btn` | `false` | boolean | Show a button a the bottom of the canvas that adds more vertical space. Only enable if `auto_resize_on_scroll` is set to `false`. |
 | `"use_hold_menu"` | `true` | boolean | If this is true and you click & hold somewhere on some blank part of the canvas, then a circular menu will appear |
@@ -247,7 +247,7 @@ This canvas element represents an algebraic deriavation that can consist of seve
 | `shadow_node_color` | color used to fill the shadow terms that show where a dragged expression originated | `'white'` |
 | `shadow_node_shadow` | css box-shadow or text-shadow of the shadow terms during dragging | `'0 0 1px gray, 0 0 1px black'` |
 | `selection_color` | color of selected nodes | `'#4682b4'` |
-| `drag_indicator_color` | color of the circle that indicates finger / mouse position during draggging | `'orange'` |
+| `drag_indicator_color` | color of the circle that indicates finger / mouse position during dragging | `'orange'` |
 | `drag_indicator_opacity` | opacity of the circle that indicates finger / mouse position during dragging | `0.4` |
 | `handle_styles` | css properties used for the handles | `handle_styles: { 'background': 'white', 'border-color': '#ddd', 'border-width': '2px' }` |
 | `row_background_color` | background color of derivation rows during dragging | `'white'` |
@@ -321,4 +321,3 @@ Graspable Math comes with a large library of actions that define mathematical tr
 
 Graspable Math by default logs user interactions with the canvas. Use `gmath.setupLogging(options)` to switch logging on or off and provide an ID by which the log data is grouped for later retrieval. Options: `{ experiment_id: string, enabled: Boolean }`.
 
-If logging is switched on, use `gmath.TrialLogger.createTrial()` to group logging data for later analysis. This is mostly useful for running experiments.
