@@ -1,11 +1,13 @@
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <title>GM Canvas Example</title>
 <script src="https://graspablemath.com/shared/libs/gmath/gm-inject.js"></script>
 <style>
   body {
-    height: 100%; padding: 2em 0; background: black;
-    font-family: Roboto, 'Open Sans', sans-serif
+    height: 100%;
+    padding: 2em 0;
+    background: black;
+    font-family: Roboto, 'Open Sans', sans-serif;
   }
   #gm-div-a {
     width: 600px;
@@ -37,22 +39,29 @@
 <body>
   <div style="width: 600px; margin: auto">
     <h1 style="margin-bottom: 0; color: #cc8401">Example 1</h1>
-    <div style="text-align: right; user-select: none; margin-bottom: 1em; color: silver">
-      <span href="#" style="cursor: pointer" onclick="canvasB.controller.undo()">Undo</span>
+    <div
+      style="
+        text-align: right;
+        user-select: none;
+        margin-bottom: 1em;
+        color: silver;
+      "
+    >
+      <span href="#" style="cursor: pointer" onclick="canvasB.controller.undo()"
+        >Undo</span
+      >
     </div>
-    <div id='gm-div-b'></div>
+    <div id="gm-div-b"></div>
     <h1 style="margin-top: 4em; color: #cc8401">Example 2</h1>
-    <div id='gm-div-a' style="width: 600px; height: 300px;"></div>
-    <p style="color: silver; margin-top: 5em">
-        This page demonstrates how to:
-    </p>
-        <ul style="color: silver">
-            <li>use settings to style GM for dark mode</li>
-            <li>create derivations with custom start states and positions</li>
-            <li>create derivations that only show the last step</li>
-            <li>connect an external "undo" button with a GM Canvas</li>
-            <li>react to changes in an expression as the user works on it</li>
-        </ul>
+    <div id="gm-div-a" style="width: 600px; height: 300px"></div>
+    <p style="color: silver; margin-top: 5em">This page demonstrates how to:</p>
+    <ul style="color: silver">
+      <li>use settings to style GM for dark mode</li>
+      <li>create derivations with custom start states and positions</li>
+      <li>create derivations that only show the last step</li>
+      <li>connect an external "undo" button with a GM Canvas</li>
+      <li>react to changes in an expression as the user works on it</li>
+    </ul>
   </div>
 
   <script>
@@ -60,7 +69,7 @@
     function initCanvas() {
       canvasA = new gmath.Canvas('#gm-div-a', canvasSmallToolbarSettings);
       canvasB = new gmath.Canvas('#gm-div-b', canvasNoToolbarSettings);
-      canvasA.model.createElement('derivation', { 
+      canvasA.model.createElement('derivation', {
         eq: 'y=1+x',
         pos: 'auto',
         font_size: 30,
@@ -82,7 +91,9 @@
 
       function checkIfSolved() {
         const solved = der.getLastModel().to_ascii() === '15';
-        document.querySelector('#gm-div-b').classList[solved ? 'add' : 'remove']('success');
+        document
+          .querySelector('#gm-div-b')
+          .classList[solved ? 'add' : 'remove']('success');
       }
 
       der.events.on('change', checkIfSolved);
@@ -115,14 +126,14 @@
       display_labels: false,
       btn_size: 'xs',
       ask_confirmation_on_closing: false,
-    }
+    };
     canvasNoToolbarSettings = {
       ...canvasSmallToolbarSettings,
       add_more_space_btn: false,
       vertical_scroll: false,
       use_toolbar: false,
-    }
-    
+    };
+
     singleLineDerivationSettings = {
       font_size: 50,
       h_align: 'center',
@@ -132,16 +143,20 @@
       no_handles: true,
       collapsed_mode: true,
       show_bg: false,
-    }
-    
+    };
+
     derivationDarkSettings = {
       row_background_color: '#333',
-      bg_edit_active_style: { 'background-color': '#333',
-                              'box-shadow': 'none' },
-      bg_edit_dragging_style: { 'background-color': '#444',
-                                'box-shadow': '0 3px 6px rgba(0,0,0,0.5)' },
+      bg_edit_active_style: {
+        'background-color': '#333',
+        'box-shadow': 'none',
+      },
+      bg_edit_dragging_style: {
+        'background-color': '#444',
+        'box-shadow': '0 3px 6px rgba(0,0,0,0.5)',
+      },
       handle_styles: {
-        'background': '#333',
+        background: '#333',
         'border-color': 'gray',
         'border-width': '1px',
       },
@@ -151,6 +166,6 @@
       selection_color: '#61A5DA', // color of selected nodes
       drag_indicator_color: '#D49C83',
       drag_indicator_opacity: 1,
-    }
+    };
   </script>
 </body>

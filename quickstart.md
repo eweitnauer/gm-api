@@ -1,6 +1,6 @@
 # Quick Start
 
-*(gmath version 2.24.11 or later)*
+_(gmath version 2.24.11 or later)_
 
 The GM Canvas is the top-level object that gives you access to the GM API. It is the container for all GM elements such as algebra derivations and handles logging user actions. The appearance and behavior of the canvas and interactive math expressions can be customized through settings. The API also allows you to modify math elements and to listen & react to user interactions.
 
@@ -33,29 +33,33 @@ In order to include the GM canvas directly into a web page, include a script tag
 Minimal example:
 
 ```html
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <title>GM Canvas Example</title>
 <script src="https://graspablemath.com/shared/libs/gmath/gm-inject.js"></script>
 
 <body>
-<div id='gm-div' style="margin: 20px; height: 400px"></div>
-<script>
-loadGM(initCanvas, { version: 'latest' });
+  <div id="gm-div" style="margin: 20px; height: 400px"></div>
+  <script>
+    loadGM(initCanvas, { version: 'latest' });
 
-function initCanvas() {
-  const canvasOptions = {
-    // You may use options described on
-    // https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md#options-that-go-in-the-options-option-described-above
-  }
-  canvas = new gmath.Canvas('#gm-div', canvasOptions);
-  canvas.model.createElement('derivation', { eq: '2x+1=3', pos: { x: 'center', y: 50 } });
-}
-</script>
+    function initCanvas() {
+      const canvasOptions = {
+        // You may use options described on
+        // https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md#options-that-go-in-the-options-option-described-above
+      };
+      canvas = new gmath.Canvas('#gm-div', canvasOptions);
+      canvas.model.createElement('derivation', {
+        eq: '2x+1=3',
+        pos: { x: 'center', y: 50 },
+      });
+    }
+  </script>
 </body>
 ```
 
 <!-- If you change the name of this section, there is at least one place in the graspable-math repository that has a link to this section (displayed on GitHub), so you will need to update that(those) hyperlink(s).  -->
+
 ## Loading and Saving a Canvas State
 
 ### If you want users to use our built-in Save button
@@ -72,10 +76,10 @@ You may use `canvas.asyncStringify()` to save a canvas state. Use `canvas.loadFr
 
 To create a derivation on an existing canvas, use the `canvas.model.createElement()` method. This method takes up to four arguments. See the code example above.
 
-* `type`... use "derivation"
-* `options`... an js object specifying settings like the position and initial equation (e.g.: `{pos: 'auto', eq: '2(a+b)'}`)
-* `method`... optional, a string that is recorded during logging
-* `callback`... optional, a method that is called after the derivation is initialized and displayed, the derivation is passed as the first argument
+- `type`... use "derivation"
+- `options`... an js object specifying settings like the position and initial equation (e.g.: `{pos: 'auto', eq: '2(a+b)'}`)
+- `method`... optional, a string that is recorded during logging
+- `callback`... optional, a method that is called after the derivation is initialized and displayed, the derivation is passed as the first argument
 
 ## Listening to Events
 
@@ -83,24 +87,24 @@ To create a derivation on an existing canvas, use the `canvas.model.createElemen
 
 Unless disabled, the user can create new derivations and remove existing ones on the canvas. To listen to create events, use `canvas.model.on('create', callback)` and `canvas.model.on('remove', callback)`. The first argument to the callback function will be an event object with these fields:
 
-* `type`... can be 'create' or 'remove'
-* `target`... a reference to the canvas element (use `target.type` to check what kind of element it is)
+- `type`... can be 'create' or 'remove'
+- `target`... a reference to the canvas element (use `target.type` to check what kind of element it is)
 
 ### Changes in the State of a Derivation
 
 In order to react to changes a user makes to elements on a canvas, such as derivations, you can listen to `el_changed` events with `canvas.model.on('el_changed', callback)`. The event object passed to the callback function looks like this:
 
-* `type`... 'el_changed'
-* `target`... a reference to the canvas element (use `target.type` to check what kind of element it is)
-* `last_eq`... only for derivations: ascii representation of the equation in the last row of the derivation
+- `type`... 'el_changed'
+- `target`... a reference to the canvas element (use `target.type` to check what kind of element it is)
+- `last_eq`... only for derivations: ascii representation of the equation in the last row of the derivation
 
 To check the state of the whole derivation, you can iterate over its rows array (`der.rows`), look at the model in each row (`der.rows[0].model`), and get an ascii representation (`der.rows[0].model.to_ascii()`).
 
 Here is a code example that listens to change events on all derivations on a canvas and shows a "Success" notice when any of the derivations reaches the state "x=1". Add these lines the the end of the `initCanvas` function in the code above.
 
 ```js
-  canvas.model.on('el_changed', function(evt) {
-    console.log(evt.last_eq);
-    if (evt.last_eq === 'x=1') canvas.showHint('Success :)');
-  });
+canvas.model.on('el_changed', function (evt) {
+  console.log(evt.last_eq);
+  if (evt.last_eq === 'x=1') canvas.showHint('Success :)');
+});
 ```

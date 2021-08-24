@@ -17,7 +17,8 @@ As described [here](https://github.com/eweitnauer/gm-api/blob/master/quickstart.
 <!-- prettier-ignore-end -->
 
 You can customize the options in the URL of the code snippet after the `embed.html?` . Separate these options with `&` signs.
-* `load=` the ID of the document you want automatically loaded
-* `eq=` a list of mathematical expressions separated by `;` that should be added to the canvas upon load e.g. `5+4;6^2=x`
-* `parent_url=` there should be no need for you to change this
-* `options=` a object written with [JSON syntax](https://www.w3schools.com/js/js_json_syntax.asp) which may have the options described the the API.md document.
+
+- `load=` the ID of the document you want automatically loaded
+- `eq=` a list of mathematical expressions separated by `;` that should be added to the canvas upon load e.g. `5+4;6^2=x`
+- `parent_url=` there should be no need for you to change this
+- `options=` a object written with [JSON syntax](https://www.w3schools.com/js/js_json_syntax.asp) which may have the options described the the API.md document.
