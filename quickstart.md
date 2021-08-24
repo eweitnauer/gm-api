@@ -8,17 +8,19 @@ The GM Canvas is the top-level object that gives you access to the GM API. It is
 
 A quick, but less customizable way to integrate GM into a webpage is by loading it through a iframe. To do so, go to [math.new](https://math.new), create any content and save it, then click the "share" button to generate a code snippet that loads GM inside an iframe, as in this example html page:
 
+<!-- prettier-ignore-start -->
 ```html
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <title>Test</title>
 <body>
-<!-- Include this in your page (Start) -->
-<script type="text/javascript">url = parent.document.URL; document.write('<iframe style="border: none" src=\'https://graspablemath.com/canvas/embed.html?load=_e0df6d1a59896f82&options={"use_toolbar": false, "vertical_scroll": false }&parent_url='+url+'\' width=100% height=400px></iframe>')
-</script>
-<!-- Include this in your page (End) -->
+  <!-- Include this in your page (Start) -->
+  <script type="text/javascript">url = parent.document.URL; document.write('<iframe style="border: none" src=\'https://graspablemath.com/canvas/embed.html?load=_e0df6d1a59896f82&options={"use_toolbar": false, "vertical_scroll": false }&parent_url='+url+'\' width=100% height=400px></iframe>')
+  </script>
+  <!-- Include this in your page (End) -->
 </body>
 ```
+<!-- prettier-ignore-end -->
 
 See [Customizing GM embedded as an iframe](https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md) for help customizing this.
 

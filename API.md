@@ -58,6 +58,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 
 ### Canvas Contructor Options
 
+<!-- prettier-ignore-start -->
 | Option | Default value | Type | Description |
 | --- | --- | --- | --- |
 | `"accept_dropped_assets"` | `true` | boolean | Whether to allow users to create things on the canvas by dragging them onto the canvas. Things such as pictures, text, things from graphs, and more |
@@ -104,6 +105,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 | `auto_resize_on_scroll` | `true` | boolean | If true, will extend the vertical size of the canvas when the user scrolls to the bottom |
 | `add_more_space_btn` | `false` | boolean | Show a button a the bottom of the canvas that adds more vertical space. Only enable if `auto_resize_on_scroll` is set to `false`. |
 | `"use_hold_menu"` | `true` | boolean | If this is true and you click & hold somewhere on some blank part of the canvas, then a circular menu will appear |
+<!-- prettier-ignore-end -->
 
 ## CanvasController
 
@@ -168,7 +170,7 @@ Hide any currently visible text notice.
 Event object passed to the callback:
 
 ```js
-{ type: 'create'
+event = { type: 'create'
 , target_type // element type, such as 'derivation'
 , target // the element
 };
@@ -179,7 +181,7 @@ Event object passed to the callback:
 Event object passed to the callback:
 
 ```js
-{ type: 'remove'
+event = { type: 'remove'
 , target_type // element type, such as 'derivation'
 , target // the element
 };
@@ -190,7 +192,7 @@ Event object passed to the callback:
 Like the change event, but is only emitted at the end of the user interaction, when the user let go of the mouse button. If the user performs several algebra transformations with one mouse drag, several `change` events will be emitted, but only a single `changed` event at the very end. It is save to remove the derivation at the `changed` event.
 
 ```js
-{ type: 'el_changed'
+event = { type: 'el_changed'
 , target_type // element type, such as 'derivation'
 , target // the element
 , last_eq // ascii string of the last derivation row (only for derivations)
@@ -205,6 +207,7 @@ The following options can be used with any `CanvasElement`.
 
 ### constructor options
 
+<!-- prettier-ignore-start -->
 | Option | Description | Default Value |
 | --- | --- | --- |
 | `pos` | initial position | `{x: 'center', y: 'center'}` |
@@ -219,6 +222,7 @@ The following options can be used with any `CanvasElement`.
 | `show_bg` | only displays background color if true | `true` |
 | `bg_edit_active_style` | css styles for background during normal edit mode | `{ 'background-color': '#333', 'box-shadow': 'none' }` |
 | `bg_edit_dragging_style` | css styles for background while dragging the element | `{ 'background-color': '#444', 'box-shadow': '0 3px 6px rgba(0,0,0,0.5)' }` |
+<!-- prettier-ignore-end -->
 
 If `pos` is set to the string `'auto'`, GM will attempt to place it at an empty, visible spot on the canvas.
 
@@ -228,6 +232,7 @@ This canvas element represents an algebraic deriavation that can consist of seve
 
 ### constructor options
 
+<!-- prettier-ignore-start -->
 | Option | Description | Default Value |
 | --- | --- | --- |
 | `eq` | initial equation | - |
@@ -254,6 +259,7 @@ This canvas element represents an algebraic deriavation that can consist of seve
 | `row_transition_dur` | duration in ms for row unpacking animation | `250` |
 | `show_area_hints` | show light blue rectangles at places a term can be dragged | `true` |
 | `show_dest_hints` | show dark blue rectangles where terms will move when holding a term over a target area | `true` |
+<!-- prettier-ignore-end -->
 
 <a name="setExpression" href="#setExpression">#</a> derivation.**setExpression**(*expr_str*)
 
