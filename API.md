@@ -290,12 +290,12 @@ Returns the `AlgebraModel` of the last line in the derivation.
 Event object passed to the callback:
 
 ```js
-{
+event = {
   type: 'change',
-    performee, // id of the derivation
-    row, // index of the new / changed row
-    model; // AlgebraModel, the new / changed model
-}
+  performee, // id of the derivation
+  row, // index of the new / changed row
+  model, // AlgebraModel, the new / changed model
+};
 ```
 
 <a name="der-on-mistake" href="#der-on-mistake">#</a> derivation.**events.on**(**'mistake'**, _callback_)
