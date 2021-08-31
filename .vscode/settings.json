@@ -1,0 +1,102 @@
+// Ignore this file, unless you are editing this repository.
+{
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  // We don't currently have .jsx files. But Ludlow wanted to add this setting anyway.
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[jsonc]": {
+    // This is because Ludlow doesn't like how the normal setting
+    // (`"editor.defaultFormatter": "esbenp.prettier-vscode"`) makes it so you can't use
+    // trailing commas in json configuration files. It is just Ludlow's preference.
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  // If, in the future, this setting gives you grief, then consider using
+  // `"rewrap.wrappingColumn": 90` instead, so that only the Rewrap extension is affected.
+  "editor.wordWrapColumn": 90,
+  // cSpell settings go with the VS Code extension that has the ID
+  // streetsidesoftware.code-spell-checker
+  "cSpell.words": [
+    "gmath",
+  ],
+  // "cSpell.ignoreWords" is like "cSpell.words", except that words in "cSpell.words" may
+  // appear in the spelling suggestions list, unlike the words in "cSpell.ignoreWords"
+  //
+  // "Gebra" is in the list to make "GeoGebra" work
+  "cSpell.ignoreWords": [
+    "Gebra",
+  ],
+  "cSpell.enableFiletypes": [
+    "vue"
+  ],
+  "cSpell.languageSettings": [
+    {
+      "languageId": "vue",
+      "dictionaries": [
+        "html",
+        "fonts",
+        "typescript",
+        "css",
+      ],
+    },
+  ],
+}

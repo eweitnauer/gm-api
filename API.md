@@ -1,4 +1,4 @@
-*(gmath version 2.24.11)*
+_(gmath version 2.24.11)_
 
 # Graspable Math API Documentation
 
@@ -12,29 +12,32 @@ This document describes how to integrate GM into your own webpage or web applica
 
 ## Integrating GM into a webpage or web application
 
-**loadGM**(*options*)
+**loadGM**(_options_)
 
-Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inject.js) script in an html page provides the `loadGM()` method. Calling it injects the gmath library, the d3 library, jquery and bootstrap, as well as several stylesheet files into the page. The *options* parameter needs to specify which gmath version to load, such as `{version: '2.24.11}` or `{version: 'latest'}`.
+Including the [gm-inject.js](https://graspablemath.com/shared/libs/gmath/gm-inject.js) script in an html page provides the `loadGM()` method. Calling it injects the gmath library, the d3 library, jquery and bootstrap, as well as several stylesheet files into the page. The _options_ parameter needs to specify which gmath version to load, such as `{version: '2.24.11}` or `{version: 'latest'}`.
 
 Here is a minimal example:
 
 ```html
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <title>GM Canvas Example</title>
 <script src="https://graspablemath.com/shared/libs/gmath/gm-inject.js"></script>
 
 <body>
-<div id='gm-div' style="margin: 20px; height: 400px"></div>
-<script>
-loadGM(initCanvas, { version: 'latest' });
+  <div id="gm-div" style="margin: 20px; height: 400px"></div>
+  <script>
+    loadGM(initCanvas, { version: 'latest' });
 
-function initCanvas() {
-  const canvasOptions = { };
-  canvas = new gmath.Canvas('#gm-div', canvasOptions);
-  canvas.model.createElement('derivation', { eq: '2x+1=3', pos: { x: 'center', y: 50 } });
-}
-</script>
+    function initCanvas() {
+      const canvasOptions = {};
+      canvas = new gmath.Canvas('#gm-div', canvasOptions);
+      canvas.model.createElement('derivation', {
+        eq: '2x+1=3',
+        pos: { x: 'center', y: 50 },
+      });
+    }
+  </script>
 </body>
 ```
 
@@ -52,12 +55,13 @@ Graspable Math puts great emphasis on smooth animations of the math transformati
 
 ## Canvas
 
-The canvas ties together a toolbar and a working area where the user can draw and erase, as well as create canvas elements and interact with them. Each canvas element has a type, such as 'derivation' or 'textbox', and a  unique id. The working area has a fixed width, but can extend vertically as needed to make space for new elements or paths.
+The canvas ties together a toolbar and a working area where the user can draw and erase, as well as create canvas elements and interact with them. Each canvas element has a type, such as 'derivation' or 'textbox', and a unique id. The working area has a fixed width, but can extend vertically as needed to make space for new elements or paths.
 
 To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, options)`. See the large table on [this page](https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md) for documentation on the many things you can customize with that `options` parameter. The Canvas will be created in the element specified by `containerHtmlElementOrDomSelector`. If you create more than one Canvas, you'll need to put each into it's own container element.
 
 ### Canvas Contructor Options
 
+<!-- prettier-ignore-start -->
 | Option | Default value | Type | Description |
 | --- | --- | --- | --- |
 | `"accept_dropped_assets"` | `true` | boolean | Whether to allow users to create things on the canvas by dragging them onto the canvas. Things such as pictures, text, things from graphs, and more |
@@ -104,6 +108,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 | `auto_resize_on_scroll` | `true` | boolean | If true, will extend the vertical size of the canvas when the user scrolls to the bottom |
 | `add_more_space_btn` | `false` | boolean | Show a button a the bottom of the canvas that adds more vertical space. Only enable if `auto_resize_on_scroll` is set to `false`. |
 | `"use_hold_menu"` | `true` | boolean | If this is true and you click & hold somewhere on some blank part of the canvas, then a circular menu will appear |
+<!-- prettier-ignore-end -->
 
 ## CanvasController
 
@@ -125,11 +130,11 @@ Removes all elements from the canvas.
 
 Holds all elements on the canvas.
 
-<a name="createElement" href="#createElement">#</a> cmodel.**createElement**(*type*, *options*, *[method]*, *[callback]*)
+<a name="createElement" href="#createElement">#</a> cmodel.**createElement**(_type_, _options_, _[method]_, _[callback]_)
 
-Creates a new canvas element. GM comes with the build-in element types 'derivation', 'textbox', 'image', 'ggb-panel' and 'ggb-element'. The *options* object is passed to the constructor of the element that is created. You should always pass `pos: {x, y}` as an option. The string passed as *method* parameter is written to the logging database, and the function passed as *callback* will be called with the created element as parameter once it is initialized and displayed.
+Creates a new canvas element. GM comes with the build-in element types 'derivation', 'textbox', 'image', 'ggb-panel' and 'ggb-element'. The _options_ object is passed to the constructor of the element that is created. You should always pass `pos: {x, y}` as an option. The string passed as _method_ parameter is written to the logging database, and the function passed as _callback_ will be called with the created element as parameter once it is initialized and displayed.
 
-<a name="removeElement" href="#removeElement">#</a> cmodel.**removeElement**(*element*)
+<a name="removeElement" href="#removeElement">#</a> cmodel.**removeElement**(_element_)
 
 Removes the passed element from the canvas.
 
@@ -137,7 +142,7 @@ Removes the passed element from the canvas.
 
 Returns an array of all elements on the canvas.
 
-<a name="scroll" href="#scroll">#</a> cmodel.**scroll**(*[y]*)
+<a name="scroll" href="#scroll">#</a> cmodel.**scroll**(_[y]_)
 
 If called without an arguments, returns the current scrollTop position of the canvas workspace. When passed a number, it will scroll to that position.
 
@@ -153,7 +158,7 @@ Returns the currently visible rectangle of the canvas workspace.
 
 Removes all elements and drawings from the canvas and scrolls to the top position.
 
-<a name="showNotice" href="#showNotice">#</a> cmodel.**showNotice**(*text*)
+<a name="showNotice" href="#showNotice">#</a> cmodel.**showNotice**(_text_)
 
 Shows a text notice at the top of the canvas. The message is automatically dismissed when the user interacts with the canvas.
 
@@ -163,37 +168,40 @@ Hide any currently visible text notice.
 
 ### Events
 
-<a name="cmodel-on-create" href="#cmodel-on-create">#</a> cmodel.**on**(**'create'**, *callback*)
+<a name="cmodel-on-create" href="#cmodel-on-create">#</a> cmodel.**on**(**'create'**, _callback_)
 
 Event object passed to the callback:
 
 ```js
-{ type: 'create'
-, target_type // element type, such as 'derivation'
-, target // the element
+event = {
+  type: 'create',
+  target_type, // element type, such as 'derivation'
+  target, // the element
 };
 ```
 
-<a name="cmodel-on-remove" href="#cmodel-on-remove">#</a> cmodel.**on**(**'remove'**, *callback*)
+<a name="cmodel-on-remove" href="#cmodel-on-remove">#</a> cmodel.**on**(**'remove'**, _callback_)
 
 Event object passed to the callback:
 
 ```js
-{ type: 'remove'
-, target_type // element type, such as 'derivation'
-, target // the element
+event = {
+  type: 'remove',
+  target_type, // element type, such as 'derivation'
+  target, // the element
 };
 ```
 
-<a name="cmodel-on-el-changed" href="#cmodel-on-el-changed">#</a> cmodel.**on**(**'el_changed'**, *callback*)
+<a name="cmodel-on-el-changed" href="#cmodel-on-el-changed">#</a> cmodel.**on**(**'el_changed'**, _callback_)
 
 Like the change event, but is only emitted at the end of the user interaction, when the user let go of the mouse button. If the user performs several algebra transformations with one mouse drag, several `change` events will be emitted, but only a single `changed` event at the very end. It is save to remove the derivation at the `changed` event.
 
 ```js
-{ type: 'el_changed'
-, target_type // element type, such as 'derivation'
-, target // the element
-, last_eq // ascii string of the last derivation row (only for derivations)
+event = {
+  type: 'el_changed',
+  target_type, // element type, such as 'derivation'
+  target, // the element
+  last_eq, // ascii string of the last derivation row (only for derivations)
 };
 ```
 
@@ -205,6 +213,7 @@ The following options can be used with any `CanvasElement`.
 
 ### constructor options
 
+<!-- prettier-ignore-start -->
 | Option | Description | Default Value |
 | --- | --- | --- |
 | `pos` | initial position | `{x: 'center', y: 'center'}` |
@@ -219,6 +228,7 @@ The following options can be used with any `CanvasElement`.
 | `show_bg` | only displays background color if true | `true` |
 | `bg_edit_active_style` | css styles for background during normal edit mode | `{ 'background-color': '#333', 'box-shadow': 'none' }` |
 | `bg_edit_dragging_style` | css styles for background while dragging the element | `{ 'background-color': '#444', 'box-shadow': '0 3px 6px rgba(0,0,0,0.5)' }` |
+<!-- prettier-ignore-end -->
 
 If `pos` is set to the string `'auto'`, GM will attempt to place it at an empty, visible spot on the canvas.
 
@@ -228,6 +238,7 @@ This canvas element represents an algebraic deriavation that can consist of seve
 
 ### constructor options
 
+<!-- prettier-ignore-start -->
 | Option | Description | Default Value |
 | --- | --- | --- |
 | `eq` | initial equation | - |
@@ -254,16 +265,17 @@ This canvas element represents an algebraic deriavation that can consist of seve
 | `row_transition_dur` | duration in ms for row unpacking animation | `250` |
 | `show_area_hints` | show light blue rectangles at places a term can be dragged | `true` |
 | `show_dest_hints` | show dark blue rectangles where terms will move when holding a term over a target area | `true` |
+<!-- prettier-ignore-end -->
 
-<a name="setExpression" href="#setExpression">#</a> derivation.**setExpression**(*expr_str*)
+<a name="setExpression" href="#setExpression">#</a> derivation.**setExpression**(_expr_str_)
 
 Set the last line of the derivation to the passed expression string.
 
-<a name="startWiggle" href="#startWiggle">#</a> derivation.**startWiggle**(*sels*)
+<a name="startWiggle" href="#startWiggle">#</a> derivation.**startWiggle**(_sels_)
 
 Pass a single term selector string or an array of term selector strings to wiggle nodes in the last line of the derivation. For example, in a derivation with `x+2x+3x` in the last line, call `derivation.startWiggle('2*x')` to wiggle the `2x` or call `derivation.startWiggle('+:2')` to wiggle the second `+`.
 
-<a name="setFontSize" href="#setFontSize">#</a> derivation.**setFontSize**(*font_size*)
+<a name="setFontSize" href="#setFontSize">#</a> derivation.**setFontSize**(_font_size_)
 
 Updates the font size of the derivation.
 
@@ -273,31 +285,32 @@ Returns the `AlgebraModel` of the last line in the derivation.
 
 ### Events
 
-<a name="der-on-change" href="#der-on-change">#</a> derivation.**events.on**(**'change'**, *callback*)
+<a name="der-on-change" href="#der-on-change">#</a> derivation.**events.on**(**'change'**, _callback_)
 
 Event object passed to the callback:
 
 ```js
-{ type: 'change'
-, performee // id of the derivation
-, row // index of the new / changed row
-, model // AlgebraModel, the new / changed model
-}
+event = {
+  type: 'change',
+  performee, // id of the derivation
+  row, // index of the new / changed row
+  model, // AlgebraModel, the new / changed model
+};
 ```
 
-<a name="der-on-mistake" href="#der-on-mistake">#</a> derivation.**events.on**(**'mistake'**, *callback*)
+<a name="der-on-mistake" href="#der-on-mistake">#</a> derivation.**events.on**(**'mistake'**, _callback_)
 
 This forwards mistake events triggered on any `AlgebraModel` in the derivation. A reference to the `AlgebraModel` is passed to the callback function. The mistake event will be fired if the user clicks on a term that does not trigger an action. This happens, for example, when clicking on the `+` in `2+3*4`, but also when clicking on `10` in `10`, or on `x` in `x=2` or on `1` in `1+2`.
 
-<a name="der-on-undo" href="#der-on-undo">#</a> derivation.**events.on**(**'undo'**, *callback*)
+<a name="der-on-undo" href="#der-on-undo">#</a> derivation.**events.on**(**'undo'**, _callback_)
 
 This event is called when an undo is triggered for the derivation.
 
-<a name="der-on-redo" href="#der-on-redo">#</a> derivation.**events.on**(**'redo'**, *callback*)
+<a name="der-on-redo" href="#der-on-redo">#</a> derivation.**events.on**(**'redo'**, _callback_)
 
 This event is called when an redo is triggered for the derivation.
 
-<a name="der-on-removed" href="#der-on-removed">#</a> derivation.**events.on**(**'removed'**, *callback*)
+<a name="der-on-removed" href="#der-on-removed">#</a> derivation.**events.on**(**'removed'**, _callback_)
 
 This event is called when the derivation was removed from the canvas.
 
@@ -320,4 +333,3 @@ Graspable Math comes with a large library of actions that define mathematical tr
 # Logging User Interactions
 
 Graspable Math by default logs user interactions with the canvas. Use `gmath.setupLogging(options)` to switch logging on or off and provide an ID by which the log data is grouped for later retrieval. Options: `{ experiment_id: string, enabled: Boolean }`.
-
