@@ -2,19 +2,15 @@
 <meta charset="utf-8" />
 <title>GM Canvas Example</title>
 <script src="https://graspablemath.com/shared/libs/gmath/gm-inject.js"></script>
+<link rel="stylesheet" href="https://graspablemath.com/shared/css/app.css" />
 <style>
   body {
     height: 100%;
     padding: 2em 0;
     background: #121212;
-    font-family: Roboto, 'Open Sans', sans-serif;
   }
   #gm-div-a {
-    width: 600px;
-    height: 300px;
-  }
-  #gm-div-b {
-    width: 600px;
+    width: 650px;
     height: 150px;
     border: black 1px solid;
     border-radius: 8px;
@@ -22,16 +18,16 @@
     transition: box-shadow 1s;
     transition-delay: 0.5s;
   }
-  #gm-div-b.success {
+  #gm-div-a.success {
     box-shadow: lightgreen 0 0 12px 3px;
   }
-  #gm-div-b .gm-canvas {
+  #gm-div-a .gm-canvas {
     border-radius: 8px;
   }
 </style>
 
 <body>
-  <div style="width: 600px; margin: auto">
+  <div style="width: 650px; margin: auto">
     <h1 style="margin-bottom: 0; color: #cc8401">Example 1</h1>
     <div
       style="
@@ -41,22 +37,72 @@
         color: rgba(255, 255, 255, 0.6);
       "
     >
-      <span
-        href="#"
-        style="cursor: pointer"
-        onclick="canvasB.controller.undo()"
-      >
+      <span href="#" style="cursor: pointer" onclick="canvasA.controller.undo()">
         Undo
       </span>
     </div>
+    <div id="gm-div-a"></div>
+    <h1 style="margin-top: 2em; color: #cc8401">Example 2 – Flexible Height</h1>
+    <p style="color: rgba(255, 255, 255, 0.87)">
+      <input
+        style="width: 4em"
+        type="number"
+        min="0"
+        value="200"
+        id="minCanvasHeight-auto"
+      />
+      minCanvasHeight
+      <input style="margin-left: 2em" type="checkbox" id="mayAdjustFontSize-auto" />
+      autoAdjustFontSize
+      <input
+        style="margin-left: 2em; width: 4em"
+        type="number"
+        value="70"
+        id="maxFontSize-auto"
+      />
+      maxFontSize
+      <button
+        style="margin-left: 2em"
+        onclick="layoutB.setOptions(getSettingsForAutoHeight())"
+      >
+        Apply Settings
+      </button>
+    </p>
+    <p style="color: rgba(255, 255, 255, 0.87)">
+      Canvas changes height automatically, as needed.
+    </p>
     <div id="gm-div-b"></div>
-    <h1 style="margin-top: 4em; color: #cc8401">Example 2</h1>
-    <div id="gm-div-a" style="width: 600px; height: 300px"></div>
+    <h1 style="margin-top: 2em; color: #cc8401">Example 3 – Fixed Height</h1>
+    <p style="color: rgba(255, 255, 255, 0.87)">
+      <input type="checkbox" checked id="mayAdjustFontSize-fixed" /> autoAdjustFontSize
+      <input
+        style="margin-left: 2em; width: 4em"
+        type="number"
+        value="70"
+        id="maxFontSize-fixed"
+      />
+      maxFontSize
+      <button
+        style="margin-left: 2em"
+        onclick="layoutC.setOptions(getSettingsForFixedHeight())"
+      >
+        Apply Settings
+      </button>
+    </p>
+    <p style="color: rgba(255, 255, 255, 0.87)">Canvas has a fixed height.</p>
+    <div id="gm-div-c" style="height: 300px"></div>
     <div style="color: rgba(255, 255, 255, 0.87)">
-      <p style="margin-top: 5em">This page demonstrates how to:</p>
+      <p style="margin-top: 2em">This page demonstrates how to:</p>
       <ul>
         <li>use settings to style GM for dark mode</li>
-        <li>create derivations with custom start states and positions</li>
+        <li>
+          create derivations with custom start states, and make it so, when the Reset
+          Button on the toolbar is pressed, the canvas is reset to that start state
+        </li>
+        <li>
+          turn on auto-layout. That makes a canvas position (and resize, if applicable)
+          its derivations automatically. Three different modes of doing this are shown.
+        </li>
         <li>create derivations that only show the last step</li>
         <li>connect an external "undo" button with a GM Canvas</li>
         <li>react to changes in an expression as the user works on it</li>
@@ -65,44 +111,72 @@
   </div>
 
   <script>
+    function getSettingsForAutoHeight() {
+      return {
+        mayAdjustCanvasHeight: true,
+        minCanvasHeight: document.querySelector('#minCanvasHeight-auto').value,
+        mayAdjustFontSize: document.querySelector('#mayAdjustFontSize-auto').checked,
+        maxFontSize: document.querySelector('#maxFontSize-auto').value,
+      };
+    }
+    function getSettingsForFixedHeight() {
+      return {
+        mayAdjustCanvasHeight: false,
+        mayAdjustFontSize: document.querySelector('#mayAdjustFontSize-fixed').checked,
+        maxFontSize: document.querySelector('#maxFontSize-fixed').value,
+      };
+    }
     loadGM(initCanvas, { version: 'latest' });
     function initCanvas() {
       // If this line is called after a canvas or derivation is instantiated, then some
-      // parts of those things will be the wrong color.
+      // parts of those things will be the wrong color. (Todo: change that.)
       gmath.setDarkTheme(true);
 
-      const canvasA = new gmath.Canvas('#gm-div-a', canvasSmallToolbarSettings);
-      canvasA.controller.set_font_size(30);
-      canvasB = new gmath.Canvas('#gm-div-b', canvasNoToolbarSettings);
+      canvasA = new gmath.Canvas('#gm-div-a', canvasNoToolbarSettings);
+      canvasB = new gmath.Canvas('#gm-div-b', canvasSmallToolbarSettings);
+      canvasB.controller.set_font_size(30);
+      canvasC = new gmath.Canvas('#gm-div-c', canvasSmallToolbarSettings);
 
-      canvasA.model.createElement('derivation', {
-        eq: 'y=1+x',
-        pos: 'auto',
-      });
-      canvasA.model.createElement('derivation', {
-        eq: 'x+2y=5',
-        pos: 'auto',
-      });
-      const der = canvasB.model.createElement('derivation', {
+      const derivation = canvasA.model.createElement('derivation', {
         eq: '1+2+3*4',
-        font_size: 50,
+        wiggle: ['+:1'],
         ...singleLineDerivationSettings,
       });
+      canvasB.model.createElement('derivation', { eq: '-2x+3y=x+y' });
+      canvasB.model.createElement('derivation', { eq: '3x+2y=5x-1' });
+      canvasB.setResetState();
+      canvasC.model.createElement('derivation', { eq: 'y=1+x' });
+      canvasC.model.createElement('derivation', { eq: 'x+2y=5' });
+      canvasC.setResetState();
+
+      gmath.autoLayout.autoLayoutCanvasForOutlier(canvasA, {
+        mayAdjustFontSize: true,
+        maxFontSize: 50,
+        verticallyCenterDerivations: true,
+        shouldFitVertically: true,
+      });
+      layoutB = gmath.autoLayout.autoLayoutCanvasForOutlier(
+        canvasB,
+        getSettingsForAutoHeight()
+      );
+      layoutC = gmath.autoLayout.autoLayoutCanvasForOutlier(
+        canvasC,
+        getSettingsForFixedHeight()
+      );
 
       function checkIfSolved() {
-        const solved = der.getLastModel().to_ascii() === '15';
+        const solved = derivation.getLastModel().to_ascii() === '15';
         document
-          .querySelector('#gm-div-b')
+          .querySelector('#gm-div-a')
           .classList[solved ? 'add' : 'remove']('success');
       }
 
-      der.events.on('change', checkIfSolved);
-      der.events.on('undo', checkIfSolved);
+      derivation.events.on('change', checkIfSolved);
+      derivation.events.on('undo', checkIfSolved);
     }
 
     const canvasSmallToolbarSettings = {
       auto_resize_on_scroll: false,
-      add_more_space_btn: true,
       use_toolbar: true,
       undo_btn: true,
       redo_btn: true,
@@ -110,6 +184,8 @@
       font_size_btns: true,
       formula_btn: true,
       help_btn: false,
+      help_logo_btn: true,
+      fullscreen_toolbar_btn: true,
       fullscreen_btn: false,
       transform_btn: false,
       keypad_btn: false,
@@ -117,6 +193,7 @@
       draw_btn: false,
       erase_btn: false,
       arrange_btn: false,
+      reset_btn: true,
       save_btn: false,
       load_btn: false,
       settings_btn: false,
@@ -131,12 +208,17 @@
       display_labels: false,
       btn_size: 'xs',
       ask_confirmation_on_closing: false,
+      // Even if you want the canvas to auto-grow in height, so that it doesn't need a
+      // scroll bar, this option is still good to set to true, if you have one of the
+      // fullscreen buttons enabled, and if you might want vertical scrolling when it is
+      // in fullscreen.
+      vertical_scroll: true,
     };
     const canvasNoToolbarSettings = {
       ...canvasSmallToolbarSettings,
-      add_more_space_btn: false,
-      vertical_scroll: false,
       use_toolbar: false,
+      fullscreen_toolbar_btn: false,
+      vertical_scroll: false,
     };
 
     const singleLineDerivationSettings = {
