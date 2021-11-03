@@ -59,6 +59,10 @@ The canvas ties together a toolbar and a working area where the user can draw an
 
 To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, options)`. See the large table on [this page](https://github.com/eweitnauer/gm-api/blob/master/customizing-gm-embedded-as-an-iframe.md) for documentation on the many things you can customize with that `options` parameter. The Canvas will be created in the element specified by `containerHtmlElementOrDomSelector`. If you create more than one Canvas, you'll need to put each into it's own container element.
 
+### Preview Mode
+
+To use preview mode, set `preview_mode` in the canvas constructor options to true. This feature can be used in combination with the cmodel.scaling() method and a covering div to create non-interactive thumbnail representations of canvas save files.
+
 ### Canvas Contructor Options
 
 <!-- prettier-ignore-start -->
@@ -92,6 +96,7 @@ To create a canvas, use `new gmath.Canvas(containerHtmlElementOrDomSelector, opt
 | `"load_btn"` | `true` | boolean | Whether to show the "load" button on the tooolbar |
 | `"new_sheet_btn"` | `true` | boolean | Whether to show the "new" button on the toolbar |
 | `"overflow_visible"` | `false` | boolean | Whether to render parts of expressions that you drag beyond the borders of the canvas |
+| `"preview_mode"` | `false` | boolean | Forces vertical and horizontal scrolling to be off. Video and graph content is not initialized. Math actions in save files will not recompute (the derivations remain, however). |
 | `"redo_btn"` | `true` | boolean | Whether to show the "redo" button on the toolbar |
 | `"save_btn"` | `true` | boolean | Whether to show the "save" button on the tooolbar |
 | `"scrub_btn"` | `true` | boolean | Whether to show the "scrub" button on the toolbar |
@@ -153,6 +158,10 @@ Returns the current size of the canvas workspace (usually bigger than the screen
 <a name="viewport" href="#viewport">#</a> cmodel.**viewport**()
 
 Returns the currently visible rectangle of the canvas workspace.
+
+<a name="scaling" href="#scaling">#</a> cmodel.**scaling**()
+
+Applies a CSS scale transform to the canvas container. Scales from the top-left.
 
 <a name="reset" href="#reset">#</a> cmodel.**reset**()
 
