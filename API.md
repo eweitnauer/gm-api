@@ -87,10 +87,9 @@ To use preview mode, set `preview_mode` in the canvas constructor options to tru
 | `"formula_btn"` | `true` | boolean | Whether to show the "formulas" button on the toolbar |
 | `"fullscreen_btn"` | `false` | boolean | Whether to put the "fullscreen" button on the toolbar |
 | `"help_btn"` | `true` | boolean | Whether to show the "help" button on the toolbar |
-| `"homework_btn"` | `false` | boolean | Whether to show the "problems" button on the toolbar |
 | `"identification_interval"` | `false` | `false` or a number | If set to a number X, will show login dialog after X ms of inactivity |
 | `"insert_btn"` | `true` | boolean | Whether to show the "insert" button on the toolbar |
-| `"insert_menu_items"` | `{ "derivation": true, "homework": true, "textbox": true, "ggb_graphing": true, "ggb_geometry": true, "ggb_3d": true, "video": true }` | a JSON object like the default value | Allows you to make it so some items are not on the "insert" menu |
+| `"insert_menu_items"` | `{ "derivation": true, "textbox": true, "ggb_graphing": true, "ggb_geometry": true, "ggb_3d": true, "video": true }` | a JSON object like the default value | Allows you to make it so some items are not on the "insert" menu |
 | `"keypad_btn"` | `true` | boolean | Whether to show the "keypad" button on the toolbar |
 | `"keyboard_max_width"` | `800` | number | Number of pixels of the maximum width of the keyboard |
 | `"load_btn"` | `true` | boolean | Whether to show the "load" button on the tooolbar |
