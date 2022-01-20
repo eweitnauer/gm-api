@@ -71,22 +71,25 @@ To use preview mode, set `preview_mode` in the canvas constructor options to tru
 | `"accept_dropped_assets"` | `true` | boolean | Whether to allow users to create things on the canvas by dragging them onto the canvas. Things such as pictures, text, things from graphs, and more |
 | `"arrange_btn"` | `true` | boolean | Whether to show the "arrange" button on the toolbar |
 | `"ask_confirmation_on_closing"` | `true` | boolean | Whether to ask for confirmation when leaving the page with unsaved changes |
-| `"btn_size"` | `"sm"` | `"sm"` or `"xs"` | Size of toolbar buttons. See also `display_icons` and `display_labels`. |
+| `"btn_size"` | `"sm"` | `"sm"` or `"xs"` | Size of toolbar buttons. See also `display_icons` and `display_labels`. This may be ignored, if GM detects that the toolbar isn't wide enough. |
 | `"content_min_width"` | `"auto"` | Any value that the CSS attribute `min-width` would take | Sets the minimum width of the canvas |
 | `"demo_video_idle_time"` | `false` | `false` or a number | If set to a number X, will show video dialog after X ms of inactivity |
 | `"demo_video_sources"` | `[ ]` | array of strings | A list of YouTube video IDs e.g. `[ "CiN5AzMPX80", "lraDNDuFNj8" ]`. `demo_video_idle_time` must be set to something other than false for this to have any effect |
 | `"disable_notifications"` | `false` | boolean | Whether to show notifications, such as the banner that says to try double-clicking |
 | `"display_icons"` | `true` | boolean | Whether to show icons on the toolbar buttons |
-| `"display_labels"` | `true` | boolean | Whether to show labels on the toolbar buttons |
+| `"display_labels"` | `true` | boolean | Whether to show labels on the toolbar buttons. This may be ignored, if GM detects that the toolbar isn't wide enough. |
 | `"draw_btn"` | `true` | boolean | Whether to show the "draw" button on the toolbar |
 | `"enable_google_classroom"` | `false` | boolean | enable / disable the share to google classroom option |
 | `"use_built_in_saving_backend"` | `true` | boolean | See mentions of this [here](https://github.com/eweitnauer/gm-api/blob/master/quickstart.md#loading-and-saving-a-canvas-state) for details. This must be `true` if `"save_btn"` is `true`. |
 | `"erase_btn"` | `true` | boolean | Whether to show the "erase" button on the toolbar |
 | `"feedback"` | `false` | boolean | Whether to show the "feedback" button on the toolbar |
 | `"font_size_btns"` | `true` | boolean | Whether to show the font size buttons on the toolbar ("larger" and "smaller") |
-| `"formula_btn"` | `true` | boolean | Whether to show the "formulas" button on the toolbar |
-| `"fullscreen_btn"` | `false` | boolean | Whether to put the "fullscreen" button on the toolbar |
+| `"formula_btn"` | `false` | boolean | Whether to show the "formulas" button on the toolbar |
+| `"formula_panel"` | `true` | boolean | Whether to show the "Formulas" panel |
+| `"fullscreen_btn"` | `false` | boolean | Whether to put the round "fullscreen" button floating on the canvas |
+| `"fullscreen_toolbar_btn"` | `true` | boolean | Whether to put the "fullscreen" button on the toolbar |
 | `"help_btn"` | `true` | boolean | Whether to show the "help" button on the toolbar |
+| `"help_logo_btn"` | `false` | boolean | Whether to show a help button that looks like the GM logo. This may be ignored, if GM detects that the toolbar isn't wide enough. |
 | `"identification_interval"` | `false` | `false` or a number | If set to a number X, will show login dialog after X ms of inactivity |
 | `"insert_btn"` | `true` | boolean | Whether to show the "insert" button on the toolbar |
 | `"insert_menu_items"` | `{ "derivation": true, "textbox": true, "ggb_graphing": true, "ggb_geometry": true, "ggb_3d": true, "video": true }` | a JSON object like the default value | Allows you to make it so some items are not on the "insert" menu |
