@@ -103,7 +103,6 @@ To use preview mode, set `preview_mode` in the canvas constructor options to tru
 | `"save_btn"` | `true` | boolean | Whether to show the "save" button on the tooolbar |
 | `"scrub_btn"` | `true` | boolean | Whether to show the "scrub" button on the toolbar |
 | `"settings_btn"` | `true` | boolean | Whether to show the "settings" button on the tooolbar |
-| `"submit_btn"` | `false` | boolean | Whether to show the "submit" button on the toolbar |
 | `"toolbar_on_style"` | `{ }` | JSON object containing CSS styles | CSS styles to be applied to the toolbar |
 | `"toolbar_pos"` | `"top"` | `"top"` or `"bottom"` | Warning, you will probably have problems if you change this from its default. This controls the toolbar's position. |
 | `"transform_btn"` | `true` | boolean | Whether to show the "transform" button on the toolbar |
